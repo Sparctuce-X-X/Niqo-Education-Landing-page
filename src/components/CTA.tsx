@@ -93,64 +93,30 @@ export default function CTA() {
 
   return (
     <section id="demo" className="py-20 md:py-32 relative overflow-hidden">
-      {/* Animated gradient background */}
+      {/* Static gradient background - optimisé pour performance */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#22C55E] via-[#16A34A] to-[#15803D]">
-        {/* Animated orbs */}
-        <motion.div 
-          className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            x: [0, 50, 0],
-            y: [0, -30, 0]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-black/10 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.1, 1],
-            x: [0, -30, 0],
-            y: [0, 20, 0]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#F97316]/10 rounded-full blur-3xl"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        />
+        {/* Static orbs - pas d'animation pour réduire TBT */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-black/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#F97316]/10 rounded-full blur-3xl" />
         
         {/* Grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
         
-        {/* Floating particles */}
+        {/* Static particles - CSS only */}
         {[
-          { left: 5, top: 20, duration: 3.5, delay: 0.3 },
-          { left: 15, top: 60, duration: 4.2, delay: 1.1 },
-          { left: 25, top: 35, duration: 3.8, delay: 0.7 },
-          { left: 35, top: 80, duration: 4.5, delay: 1.5 },
-          { left: 45, top: 15, duration: 3.2, delay: 0.2 },
-          { left: 55, top: 50, duration: 4.8, delay: 1.8 },
-          { left: 65, top: 75, duration: 3.6, delay: 0.5 },
-          { left: 75, top: 25, duration: 4.1, delay: 1.3 },
-          { left: 85, top: 65, duration: 3.9, delay: 0.9 },
-          { left: 95, top: 40, duration: 4.4, delay: 1.6 },
+          { left: 5, top: 20 },
+          { left: 25, top: 35 },
+          { left: 45, top: 15 },
+          { left: 65, top: 75 },
+          { left: 85, top: 65 },
         ].map((particle, i) => (
-          <motion.div
+          <div
             key={i}
-            className="absolute w-2 h-2 bg-white/20 rounded-full"
+            className="absolute w-2 h-2 bg-white/30 rounded-full"
             style={{
               left: `${particle.left}%`,
               top: `${particle.top}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.5, 0.2],
-            }}
-            transition={{
-              duration: particle.duration,
-              repeat: Infinity,
-              delay: particle.delay,
             }}
           />
         ))}
@@ -400,12 +366,14 @@ export default function CTA() {
 
                       {/* Student Count */}
                       <div>
-                        <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">
+                        <label htmlFor="studentCount" className="block text-sm font-semibold text-[#1E3A5F] mb-2">
                           Nombre d&apos;élèves
                         </label>
                         <div className="relative">
                           <Users className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${focusedField === 'students' ? 'text-[#22C55E]' : 'text-gray-400'}`} />
                           <select
+                            id="studentCount"
+                            aria-label="Nombre d'élèves"
                             {...register("studentCount")}
                             onFocus={() => setFocusedField('students')}
                             onBlur={() => setFocusedField(null)}

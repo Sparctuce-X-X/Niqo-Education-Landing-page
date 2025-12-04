@@ -223,6 +223,15 @@ html {
   }
 }
 
+/* PERFORMANCE: Désactiver les animations sur mobile pour réduire le TBT */
+@media (max-width: 767px) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.1s !important;
+  }
+}
+
 /* Optimisation du rendu des images */
 img {
   content-visibility: auto;

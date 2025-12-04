@@ -63,13 +63,7 @@ export default function Navbar() {
           }`}>
             
             {/* Effet de brillance animé sur la navbar */}
-            <div className="absolute inset-0 rounded-2xl overflow-hidden">
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                animate={{ x: ["-200%", "200%"] }}
-                transition={{ duration: 3, repeat: Infinity, repeatDelay: 5, ease: "easeInOut" }}
-              />
-            </div>
+            {/* Effet de brillance - désactivé pour performance */}
 
             {/* Logo avec animation */}
             <motion.a 
@@ -177,6 +171,8 @@ export default function Navbar() {
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={isOpen}
               className="md:hidden relative z-10 w-10 h-10 flex items-center justify-center rounded-xl bg-white/50 backdrop-blur-sm border border-white/50 text-[#1E3A5F]"
             >
               <AnimatePresence mode="wait">

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { 
   GraduationCap, 
   CheckSquare, 
@@ -83,78 +83,18 @@ const features = [
   },
 ];
 
+// Composant simplifié pour performance - pas d'effets 3D
 function FeatureCard({ feature, index }: { feature: typeof features[0]; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-  
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-    setIsHovered(false);
-  };
-
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX: isHovered ? rotateX : 0,
-        rotateY: isHovered ? rotateY : 0,
-        transformStyle: "preserve-3d",
-      }}
-      className="group relative"
-    >
-      <div className={`relative h-full bg-gradient-to-br ${feature.bgGradient} rounded-3xl p-6 border border-white/50 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:shadow-2xl ${feature.shadowColor}`}>
-        {/* Glow effect */}
-        <motion.div 
-          className={`absolute -inset-px bg-gradient-to-r ${feature.gradient} rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500`}
-          style={{ transform: "translateZ(-10px)" }}
-        />
-        
-        {/* Shimmer effect */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-        </div>
-
+    <div className="group relative">
+      <div className={`relative h-full bg-gradient-to-br ${feature.bgGradient} rounded-3xl p-6 border border-white/50 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:shadow-2xl ${feature.shadowColor} hover:-translate-y-1`}>
         {/* Content */}
-        <div className="relative z-10" style={{ transform: "translateZ(20px)" }}>
-          <motion.div 
-            className={`w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mb-5 shadow-lg ${feature.shadowColor}`}
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ type: "spring", stiffness: 400 }}
-          >
+        <div className="relative z-10">
+          <div className={`w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mb-5 shadow-lg ${feature.shadowColor} transition-transform duration-300 group-hover:scale-105`}>
             <feature.icon className="w-7 h-7 text-white" />
-          </motion.div>
+          </div>
           
-          <h3 className="text-xl font-bold text-[#1E3A5F] mb-3 group-hover:text-[#1E3A5F] transition-colors">
+          <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">
             {feature.title}
           </h3>
           
@@ -162,22 +102,18 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
             {feature.description}
           </p>
 
-          <motion.div 
-            className="flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
-            initial={{ x: -10 }}
-            whileHover={{ x: 0 }}
-          >
+          <div className="flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
             <span className={`bg-gradient-to-r ${feature.gradient} bg-clip-text text-transparent`}>
               En savoir plus
             </span>
             <ArrowRight className={`w-4 h-4 text-[#22C55E] group-hover:translate-x-1 transition-transform`} />
-          </motion.div>
+          </div>
         </div>
 
         {/* Corner decoration */}
         <div className={`absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-br ${feature.gradient} rounded-full opacity-10 group-hover:opacity-20 transition-opacity`} />
       </div>
-    </motion.div>
+    </div>
   );
 }
 

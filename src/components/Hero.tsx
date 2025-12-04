@@ -29,69 +29,34 @@ export default function Hero() {
 
   return (
     <section ref={containerRef} className="relative min-h-screen pt-20 md:pt-24 pb-16 md:pb-24 overflow-hidden">
-      {/* Animated Background */}
+      {/* Static Background - optimisé pour performance */}
       <div className="absolute inset-0 -z-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-100/40 via-white to-orange-50/30" />
         
-        {/* Animated gradient orbs */}
-        <motion.div 
-          className="absolute top-20 -right-20 w-[600px] h-[600px] bg-gradient-to-br from-[#22C55E]/20 to-[#22C55E]/5 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            x: [0, 30, 0],
-            y: [0, -20, 0]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-gradient-to-tr from-[#F97316]/20 to-[#F97316]/5 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.1, 1],
-            x: [0, -20, 0],
-            y: [0, 30, 0]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#1E3A5F]/5 to-transparent rounded-full blur-3xl"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        />
+        {/* Static gradient orbs - pas d'animation pour réduire TBT */}
+        <div className="absolute top-20 -right-20 w-[600px] h-[600px] bg-gradient-to-br from-[#22C55E]/20 to-[#22C55E]/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-gradient-to-tr from-[#F97316]/20 to-[#F97316]/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#1E3A5F]/5 to-transparent rounded-full blur-3xl" />
         
         {/* Grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
-      {/* Floating particles */}
+      {/* Static particles - CSS only pour performance */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         {[
-          { left: 10, top: 15, duration: 3.5, delay: 0.2 },
-          { left: 25, top: 45, duration: 4.2, delay: 0.8 },
-          { left: 40, top: 20, duration: 3.8, delay: 1.5 },
-          { left: 55, top: 70, duration: 4.5, delay: 0.5 },
-          { left: 70, top: 35, duration: 3.2, delay: 1.2 },
-          { left: 85, top: 60, duration: 4.8, delay: 0.3 },
-          { left: 15, top: 80, duration: 3.6, delay: 1.8 },
-          { left: 45, top: 55, duration: 4.1, delay: 0.7 },
-          { left: 75, top: 25, duration: 3.9, delay: 1.1 },
-          { left: 90, top: 85, duration: 4.4, delay: 0.4 },
+          { left: 10, top: 15 },
+          { left: 40, top: 20 },
+          { left: 70, top: 35 },
+          { left: 85, top: 60 },
+          { left: 45, top: 55 },
         ].map((particle, i) => (
-          <motion.div
+          <div
             key={i}
-            className="absolute w-2 h-2 bg-[#22C55E]/20 rounded-full"
+            className="absolute w-2 h-2 bg-[#22C55E]/30 rounded-full"
             style={{
               left: `${particle.left}%`,
               top: `${particle.top}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.5, 0.2],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: particle.duration,
-              repeat: Infinity,
-              delay: particle.delay,
             }}
           />
         ))}
