@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     question: "Puis-je importer mes données existantes ?",
-    answer: "Oui, absolument ! Vous pouvez importer vos listes d'élèves, parents et classes depuis un fichier Excel. Notre équipe vous accompagne gratuitement pour la migration de vos données existantes.",
+    answer: "Oui, absolument ! Vous pouvez importer vos listes d'élèves, parents et classes depuis un fichier Excel. Je vous accompagne gratuitement pour la migration de vos données existantes.",
   },
   {
     question: "Y a-t-il une application pour les parents ?",
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "Combien de temps prend la mise en place ?",
-    answer: "La configuration initiale prend généralement moins de 24 heures. Notre équipe vous accompagne pour créer votre compte, importer vos données et former vos équipes. Vous pouvez commencer à utiliser la plateforme dès le lendemain.",
+    answer: "La configuration initiale prend généralement entre 24 et 72 heures selon la taille de votre école. Je vous accompagne personnellement pour créer votre compte, importer vos données et vous former. Vous pouvez commencer à utiliser la plateforme très rapidement.",
   },
   {
     question: "Puis-je changer de plan à tout moment ?",
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: "Proposez-vous une formation ?",
-    answer: "Oui, une formation en ligne est incluse dans tous les plans. Pour le plan Enterprise, nous proposons également des formations sur site. De plus, notre support est disponible pour répondre à toutes vos questions.",
+    answer: "Oui, une formation en visio ou WhatsApp est incluse. Je vous forme personnellement à l'utilisation de la plateforme et reste disponible pour répondre à toutes vos questions.",
   },
   {
     question: "Quels moyens de paiement acceptez-vous ?",
@@ -118,7 +118,7 @@ export default function FAQ() {
             Vous avez d&apos;autres questions ?
           </h3>
           <p className="text-[#1E3A5F]/60 mb-4">
-            Notre équipe est disponible pour vous répondre
+            Je suis disponible pour vous répondre
           </p>
           <a
             href="https://wa.me/22500000000"

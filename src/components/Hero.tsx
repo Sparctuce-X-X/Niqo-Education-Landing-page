@@ -199,9 +199,9 @@ export default function Hero() {
               className="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0"
             >
               {[
-                { icon: CheckCircle2, text: "Configuration 24h", color: "text-[#22C55E]" },
+                { icon: CheckCircle2, text: "Mise en place 24-72h", color: "text-[#22C55E]" },
                 { icon: Smartphone, text: "App mobile incluse", color: "text-[#1E3A5F]" },
-                { icon: TrendingUp, text: "98% satisfaction", color: "text-[#F97316]" },
+                { icon: TrendingUp, text: "Accompagnement fondateur", color: "text-[#F97316]" },
               ].map((item, index) => (
                 <motion.div 
                   key={index}

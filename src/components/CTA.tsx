@@ -85,10 +85,10 @@ export default function CTA() {
   };
 
   const benefits = [
-    { icon: Clock, text: "Démonstration personnalisée de 30 minutes" },
-    { icon: Sparkles, text: "Configuration gratuite de votre compte" },
-    { icon: Shield, text: "14 jours d'essai sans engagement" },
-    { icon: Headphones, text: "Support dédié pendant la mise en place" },
+    { icon: Clock, text: "Démonstration personnalisée de 15 minutes" },
+    { icon: Sparkles, text: "Mise en place gratuite de votre compte" },
+    { icon: Shield, text: "3 mois d'essai pilote gratuit" },
+    { icon: Headphones, text: "Accompagnement direct par le fondateur" },
   ];
 
   return (
@@ -202,25 +202,14 @@ export default function CTA() {
               ))}
             </div>
 
-            {/* Trust indicators */}
-            <div className="flex items-center gap-6">
-              <div className="flex -space-x-3">
-                {[...Array(4)].map((_, i) => (
-                  <div 
-                    key={i} 
-                    className="w-10 h-10 rounded-full bg-gradient-to-br from-white/30 to-white/10 border-2 border-white/50 flex items-center justify-center"
-                  >
-                    <span className="text-xs font-bold text-white">👤</span>
-                  </div>
-                ))}
+            {/* Trust indicator */}
+            <div className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-sm rounded-xl">
+              <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                <span className="text-lg">🚀</span>
               </div>
               <div>
-                <div className="flex items-center gap-1 mb-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#F97316] text-[#F97316]" />
-                  ))}
-                </div>
-                <p className="text-sm text-white/70">Noté 4.9/5 par nos clients</p>
+                <p className="text-sm text-white font-medium">Programme pilote en cours</p>
+                <p className="text-xs text-white/70">Places limitées pour 3 écoles</p>
               </div>
             </div>
           </motion.div>
@@ -257,7 +246,7 @@ export default function CTA() {
                       Merci pour votre demande !
                     </h3>
                     <p className="text-[#1E3A5F]/60 mb-6">
-                      Notre équipe vous contactera dans les 24 heures pour planifier 
+                      Je vous contacterai dans les 24-48 heures pour planifier 
                       votre démonstration personnalisée.
                     </p>
                     <motion.button
@@ -451,7 +440,7 @@ export default function CTA() {
                       </motion.button>
 
                       <p className="text-xs text-center text-[#1E3A5F]/50 mt-4">
-                        En soumettant ce formulaire, vous acceptez d&apos;être contacté par notre équipe.
+                        En soumettant ce formulaire, vous acceptez d&apos;être contacté par Dominique Huang, fondateur de Niqo Education.
                         <br />Vos données sont protégées et ne seront jamais partagées.
                       </p>
                     </form>

@@ -23,7 +23,7 @@ const benefits = [
   {
     icon: Users,
     title: "Accompagnement personnalisé",
-    description: "Configuration et formation sur site par notre équipe",
+    description: "Configuration et formation en visio par le fondateur",
   },
   {
     icon: MessageCircle,

@@ -16,7 +16,7 @@ const steps = [
     number: "01",
     icon: Building2,
     title: "Inscrivez votre école",
-    description: "Créez votre compte et configurez votre établissement. Notre équipe vous accompagne pour une mise en place en moins de 24h.",
+    description: "Créez votre compte et configurez votre établissement. Je vous accompagne personnellement pour une mise en place en 24-72h.",
     color: "bg-[#22C55E]",
   },
   {
@@ -53,7 +53,7 @@ export default function HowItWorks() {
             Démarrez en 3 étapes simples
           </h2>
           <p className="text-lg text-[#1E3A5F]/70 max-w-2xl mx-auto">
-            Pas besoin de formation technique. Notre équipe vous accompagne à chaque étape.
+            Pas besoin de formation technique. Je vous accompagne personnellement à chaque étape.
           </p>
         </motion.div>
 
