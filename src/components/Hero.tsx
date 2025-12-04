@@ -62,13 +62,24 @@ export default function Hero() {
 
       {/* Floating particles */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {[
+          { left: 10, top: 15, duration: 3.5, delay: 0.2 },
+          { left: 25, top: 45, duration: 4.2, delay: 0.8 },
+          { left: 40, top: 20, duration: 3.8, delay: 1.5 },
+          { left: 55, top: 70, duration: 4.5, delay: 0.5 },
+          { left: 70, top: 35, duration: 3.2, delay: 1.2 },
+          { left: 85, top: 60, duration: 4.8, delay: 0.3 },
+          { left: 15, top: 80, duration: 3.6, delay: 1.8 },
+          { left: 45, top: 55, duration: 4.1, delay: 0.7 },
+          { left: 75, top: 25, duration: 3.9, delay: 1.1 },
+          { left: 90, top: 85, duration: 4.4, delay: 0.4 },
+        ].map((particle, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-[#22C55E]/20 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
             }}
             animate={{
               y: [0, -30, 0],
@@ -76,9 +87,9 @@ export default function Hero() {
               scale: [1, 1.2, 1],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: particle.delay,
             }}
           />
         ))}
