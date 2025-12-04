@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, Sparkles, ArrowRight } from "lucide-react";
 
 const navLinks = [
   { href: "#fonctionnalites", label: "Fonctionnalités" },
@@ -15,6 +15,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -42,85 +43,141 @@ export default function Navbar() {
   return (
     <>
       <motion.nav 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           isScrolled 
-            ? "bg-white/80 backdrop-blur-xl shadow-lg shadow-gray-200/20 border-b border-gray-100" 
-            : "bg-transparent"
+            ? "py-2" 
+            : "py-4"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
-            <motion.a 
-              href="#" 
-              className="flex items-center group"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className="text-2xl font-bold text-[#1E3A5F]">
-                Niqo<span className="text-gradient">Education</span>
-              </span>
-            </motion.a>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link, index) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`relative px-4 py-2 rounded-full font-medium transition-all duration-300 ${
-                    activeSection === link.href.replace("#", "")
-                      ? "text-[#22C55E]"
-                      : "text-[#1E3A5F]/70 hover:text-[#1E3A5F]"
-                  }`}
-                >
-                  {link.label}
-                  {activeSection === link.href.replace("#", "") && (
-                    <motion.div
-                      layoutId="activeSection"
-                      className="absolute inset-0 bg-[#22C55E]/10 rounded-full -z-10"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                    />
-                  )}
-                </motion.a>
-              ))}
+        {/* Navbar container avec effet glassmorphism amélioré */}
+        <div className={`max-w-6xl mx-auto px-4 transition-all duration-500 ${
+          isScrolled ? "px-4" : "px-6"
+        }`}>
+          <div className={`relative flex items-center justify-between rounded-2xl transition-all duration-500 ${
+            isScrolled 
+              ? "h-14 px-4 bg-white/70 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/50" 
+              : "h-16 px-6 bg-white/40 backdrop-blur-xl border border-white/30"
+          }`}>
+            
+            {/* Effet de brillance animé sur la navbar */}
+            <div className="absolute inset-0 rounded-2xl overflow-hidden">
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                animate={{ x: ["-200%", "200%"] }}
+                transition={{ duration: 3, repeat: Infinity, repeatDelay: 5, ease: "easeInOut" }}
+              />
             </div>
 
-            {/* Desktop CTA */}
+            {/* Logo avec animation */}
+            <motion.a 
+              href="#" 
+              className="relative flex items-center group z-10"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <div className="relative">
+                <span className="text-xl md:text-2xl font-extrabold tracking-tight">
+                  <span className="text-[#1E3A5F]">Niqo</span>
+                  <span className="bg-gradient-to-r from-[#22C55E] via-[#25D366] to-[#F97316] bg-clip-text text-transparent">Education</span>
+                </span>
+                {/* Underline animé au hover */}
+                <motion.div 
+                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-[#22C55E] to-[#F97316] rounded-full"
+                  initial={{ width: 0 }}
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
+            </motion.a>
+
+            {/* Desktop Navigation avec pill animée */}
+            <div className="hidden md:flex items-center">
+              <div className="relative flex items-center bg-gray-100/50 rounded-xl p-1">
+                {/* Pill animée qui suit le hover */}
+                <AnimatePresence>
+                  {hoveredLink && (
+                    <motion.div
+                      layoutId="navPill"
+                      className="absolute inset-y-1 bg-white rounded-lg shadow-sm"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                    />
+                  )}
+                </AnimatePresence>
+                
+                {navLinks.map((link, index) => (
+                  <motion.a
+                    key={link.href}
+                    href={link.href}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.08 }}
+                    onMouseEnter={() => setHoveredLink(link.href)}
+                    onMouseLeave={() => setHoveredLink(null)}
+                    className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg z-10 ${
+                      activeSection === link.href.replace("#", "")
+                        ? "text-[#22C55E]"
+                        : "text-[#1E3A5F]/70 hover:text-[#1E3A5F]"
+                    }`}
+                  >
+                    {link.label}
+                    {/* Indicateur de section active */}
+                    {activeSection === link.href.replace("#", "") && (
+                      <motion.div
+                        layoutId="activeIndicator"
+                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#22C55E] rounded-full"
+                        transition={{ type: "spring", bounce: 0.3 }}
+                      />
+                    )}
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop CTA avec effet premium */}
             <motion.div 
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="hidden md:flex items-center gap-3"
+              className="hidden md:flex items-center gap-3 z-10"
             >
-              <a
+              <motion.a
                 href="#demo"
-                className="group relative px-6 py-2.5 bg-gradient-to-r from-[#22C55E] to-[#16A34A] text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-green-500/30 hover:scale-105 overflow-hidden"
+                className="group relative flex items-center gap-2 px-5 py-2.5 bg-[#1E3A5F] text-white text-sm font-semibold rounded-xl overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4" />
-                  Démo gratuite
-                </span>
+                {/* Gradient animé au hover */}
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-[#16A34A] to-[#22C55E]"
-                  initial={{ x: "100%" }}
+                  className="absolute inset-0 bg-gradient-to-r from-[#22C55E] to-[#16A34A]"
+                  initial={{ x: "-100%" }}
                   whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                 />
-              </a>
+                <span className="relative z-10 flex items-center gap-2">
+                  Démo gratuite
+                  <motion.span
+                    className="inline-block"
+                    initial={{ x: 0 }}
+                    whileHover={{ x: 3 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ArrowRight className="w-4 h-4" />
+                  </motion.span>
+                </span>
+              </motion.a>
             </motion.div>
 
             {/* Mobile Menu Button */}
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-xl bg-[#F8FAFC] text-[#1E3A5F]"
+              className="md:hidden relative z-10 w-10 h-10 flex items-center justify-center rounded-xl bg-white/50 backdrop-blur-sm border border-white/50 text-[#1E3A5F]"
             >
               <AnimatePresence mode="wait">
                 {isOpen ? (
@@ -149,42 +206,58 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Style premium */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-gray-100"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="md:hidden mx-4 mt-2"
             >
-              <div className="px-4 py-6 space-y-2">
-                {navLinks.map((link, index) => (
+              <div className="bg-white/90 backdrop-blur-2xl rounded-2xl border border-white/50 shadow-[0_20px_60px_rgba(0,0,0,0.15)] overflow-hidden">
+                <div className="p-4 space-y-1">
+                  {navLinks.map((link, index) => (
+                    <motion.a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      className="group flex items-center justify-between py-3.5 px-4 rounded-xl text-[#1E3A5F] hover:bg-gradient-to-r hover:from-[#22C55E]/10 hover:to-transparent transition-all font-medium"
+                    >
+                      <span className="flex items-center gap-3">
+                        <motion.div 
+                          className="w-2 h-2 rounded-full bg-gradient-to-r from-[#22C55E] to-[#25D366]"
+                          whileHover={{ scale: 1.5 }}
+                        />
+                        {link.label}
+                      </span>
+                      <ArrowRight className="w-4 h-4 text-[#1E3A5F]/30 group-hover:text-[#22C55E] group-hover:translate-x-1 transition-all" />
+                    </motion.a>
+                  ))}
+                </div>
+                
+                {/* Séparateur avec gradient */}
+                <div className="mx-4 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+                
+                <div className="p-4">
                   <motion.a
-                    key={link.href}
-                    href={link.href}
+                    href="#demo"
                     onClick={() => setIsOpen(false)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="flex items-center gap-3 py-3 px-4 rounded-xl text-[#1E3A5F] hover:bg-[#22C55E]/10 hover:text-[#22C55E] transition-all font-medium"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-gradient-to-r from-[#1E3A5F] to-[#2d4a6f] text-white font-semibold rounded-xl shadow-lg shadow-[#1E3A5F]/20 hover:shadow-xl transition-shadow"
                   >
-                    <div className="w-2 h-2 rounded-full bg-[#22C55E]/30" />
-                    {link.label}
+                    <Sparkles className="w-5 h-5" />
+                    Demander une démo gratuite
+                    <ArrowRight className="w-4 h-4" />
                   </motion.a>
-                ))}
-                <motion.a
-                  href="#demo"
-                  onClick={() => setIsOpen(false)}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.2 }}
-                  className="flex items-center justify-center gap-2 w-full text-center px-6 py-4 bg-gradient-to-r from-[#22C55E] to-[#16A34A] text-white font-semibold rounded-2xl mt-4 shadow-lg shadow-green-500/30"
-                >
-                  <Sparkles className="w-5 h-5" />
-                  Demander une démo gratuite
-                </motion.a>
+                </div>
               </div>
             </motion.div>
           )}
@@ -199,7 +272,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+            className="fixed inset-0 bg-black/30 backdrop-blur-md z-40 md:hidden"
           />
         )}
       </AnimatePresence>
