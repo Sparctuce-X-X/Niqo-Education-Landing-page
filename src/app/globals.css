@@ -199,3 +199,52 @@ html {
   background: rgba(34, 197, 94, 0.3);
   color: #1E3A5F;
 }
+
+/* ===== OPTIMISATIONS PERFORMANCE ===== */
+
+/* Respect des préférences utilisateur pour les animations réduites */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .float,
+  .float-delayed,
+  .blob,
+  .shimmer,
+  .animated-gradient,
+  .pulse-glow {
+    animation: none !important;
+  }
+}
+
+/* Optimisation du rendu des images */
+img {
+  content-visibility: auto;
+}
+
+/* Optimisation du rendu pour les sections hors écran */
+section {
+  contain: layout style;
+}
+
+/* GPU acceleration pour les animations fréquentes */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Optimisation du texte */
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+}
+
+p, span, a {
+  text-rendering: optimizeSpeed;
+}
