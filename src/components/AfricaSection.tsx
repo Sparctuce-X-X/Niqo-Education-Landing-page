@@ -39,7 +39,8 @@ const targetCountries = [
       schools: "22 000+",
       students: "5.8 millions",
       privateSchools: "35%",
-      funFact: "Le taux de scolarisation a doublé en 20 ans"
+      funFact: "Le taux de scolarisation a doublé en 20 ans",
+      source: "UNESCO & Ministère de l'Éducation Nationale (2023)"
     }
   },
   { 
@@ -49,7 +50,8 @@ const targetCountries = [
       schools: "15 000+",
       students: "3.5 millions",
       privateSchools: "28%",
-      funFact: "1ère destination éducative en Afrique de l'Ouest"
+      funFact: "1ère destination éducative en Afrique de l'Ouest",
+      source: "Banque Mondiale & MEN Sénégal (2022)"
     }
   },
   { 
@@ -59,7 +61,8 @@ const targetCountries = [
       schools: "25 000+",
       students: "7 millions",
       privateSchools: "40%",
-      funFact: "Système bilingue français-anglais unique en Afrique"
+      funFact: "Système bilingue français-anglais unique en Afrique",
+      source: "INS Cameroun & UNESCO (2023)"
     }
   },
   { 
@@ -69,7 +72,8 @@ const targetCountries = [
       schools: "3 500+",
       students: "1.2 million",
       privateSchools: "25%",
-      funFact: "Taux d'alphabétisation parmi les plus élevés d'Afrique centrale"
+      funFact: "Taux d'alphabétisation de 80%, parmi les plus élevés d'Afrique centrale",
+      source: "UNESCO & Ministère de l'Enseignement (2022)"
     }
   },
   { 
@@ -79,7 +83,8 @@ const targetCountries = [
       schools: "51 000+",
       students: "19 millions",
       privateSchools: "70%",
-      funFact: "Plus grand système éducatif francophone d'Afrique"
+      funFact: "Plus grand système éducatif francophone d'Afrique",
+      source: "Banque Mondiale & EPSP RDC (2023)"
     }
   },
   { 
@@ -89,7 +94,8 @@ const targetCountries = [
       schools: "5 000+",
       students: "2.5 millions",
       privateSchools: "15%",
-      funFact: "Leader africain de la digitalisation de l'éducation"
+      funFact: "Leader africain de la digitalisation de l'éducation",
+      source: "MINEDUC Rwanda & Banque Mondiale (2023)"
     }
   },
   { 
@@ -99,7 +105,8 @@ const targetCountries = [
       schools: "2 000+",
       students: "450 000",
       privateSchools: "30%",
-      funFact: "Taux de scolarisation de 95% au primaire"
+      funFact: "Taux de scolarisation de 95% au primaire",
+      source: "UNESCO & Direction Générale des Statistiques (2022)"
     }
   },
   { 
@@ -109,7 +116,8 @@ const targetCountries = [
       schools: "12 000+",
       students: "3 millions",
       privateSchools: "20%",
-      funFact: "Gratuité scolaire depuis 2006"
+      funFact: "Gratuité scolaire au primaire depuis 2006",
+      source: "INSAE Bénin & UNESCO (2023)"
     }
   },
   { 
@@ -119,7 +127,8 @@ const targetCountries = [
       schools: "13 000+",
       students: "3.8 millions",
       privateSchools: "25%",
-      funFact: "Croissance de 8% par an des écoles privées"
+      funFact: "Croissance de 8% par an des écoles privées",
+      source: "Ministère de l'Éducation Mali & UNICEF (2022)"
     }
   },
   { 
@@ -129,7 +138,8 @@ const targetCountries = [
       schools: "16 000+",
       students: "4.5 millions",
       privateSchools: "22%",
-      funFact: "Investissement éducatif de 20% du budget national"
+      funFact: "20% du budget national dédié à l'éducation",
+      source: "INSD Burkina & Banque Mondiale (2023)"
     }
   },
 ];
@@ -382,11 +392,17 @@ export default function AfricaSection() {
                 </div>
 
                 {/* Fun Fact */}
-                <div className="bg-gradient-to-r from-[#F97316]/20 to-[#EAB308]/20 rounded-xl p-4 border border-[#F97316]/20">
+                <div className="bg-gradient-to-r from-[#F97316]/20 to-[#EAB308]/20 rounded-xl p-4 border border-[#F97316]/20 mb-4">
                   <p className="text-sm text-white/90 text-center">
                     <span className="text-lg mr-2">💡</span>
                     {selectedCountry.stats.funFact}
                   </p>
+                </div>
+
+                {/* Source */}
+                <div className="text-center pt-4 border-t border-white/10">
+                  <p className="text-[10px] text-white/40 uppercase tracking-wider mb-1">Source</p>
+                  <p className="text-xs text-white/50">{selectedCountry.stats.source}</p>
                 </div>
               </motion.div>
             </motion.div>
