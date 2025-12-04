@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import { Menu, X, GraduationCap, Sparkles } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 
 const navLinks = [
   { href: "#fonctionnalites", label: "Fonctionnalités" },
@@ -56,26 +56,13 @@ export default function Navbar() {
             {/* Logo */}
             <motion.a 
               href="#" 
-              className="flex items-center gap-3 group"
+              className="flex items-center group"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="relative">
-                <div className="w-11 h-11 bg-gradient-to-br from-[#22C55E] to-[#16A34A] rounded-xl flex items-center justify-center shadow-lg shadow-green-500/30 group-hover:shadow-green-500/50 transition-shadow">
-                  <GraduationCap className="w-6 h-6 text-white" />
-                </div>
-                <motion.div 
-                  className="absolute -inset-1 bg-gradient-to-r from-[#22C55E] to-[#F97316] rounded-xl opacity-0 group-hover:opacity-30 blur transition-opacity"
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold text-[#1E3A5F] leading-tight">
-                  Niqo<span className="text-gradient">Education</span>
-                </span>
-                <span className="text-[10px] text-[#1E3A5F]/50 font-medium tracking-wider">
-                  GESTION SCOLAIRE
-                </span>
-              </div>
+              <span className="text-2xl font-bold text-[#1E3A5F]">
+                Niqo<span className="text-gradient">Education</span>
+              </span>
             </motion.a>
 
             {/* Desktop Navigation */}

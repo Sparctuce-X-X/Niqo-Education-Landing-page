@@ -1,49 +1,18 @@
-import dynamic from "next/dynamic";
-
-// Composants critiques (above the fold) - chargés immédiatement
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-
-// Composants non-critiques (below the fold) - chargés en lazy loading
-const BeforeAfter = dynamic(() => import("@/components/BeforeAfter"), {
-  loading: () => <div className="min-h-[400px]" />,
-});
-const AfricaSection = dynamic(() => import("@/components/AfricaSection"), {
-  loading: () => <div className="min-h-[400px]" />,
-});
-const PainPoints = dynamic(() => import("@/components/PainPoints"), {
-  loading: () => <div className="min-h-[400px]" />,
-});
-const Features = dynamic(() => import("@/components/Features"), {
-  loading: () => <div className="min-h-[400px]" />,
-});
-const HowItWorks = dynamic(() => import("@/components/HowItWorks"), {
-  loading: () => <div className="min-h-[400px]" />,
-});
-const Founder = dynamic(() => import("@/components/Founder"), {
-  loading: () => <div className="min-h-[400px]" />,
-});
-const PilotProgram = dynamic(() => import("@/components/PilotProgram"), {
-  loading: () => <div className="min-h-[400px]" />,
-});
-const Testimonials = dynamic(() => import("@/components/Testimonials"), {
-  loading: () => <div className="min-h-[400px]" />,
-});
-const Pricing = dynamic(() => import("@/components/Pricing"), {
-  loading: () => <div className="min-h-[400px]" />,
-});
-const FAQ = dynamic(() => import("@/components/FAQ"), {
-  loading: () => <div className="min-h-[400px]" />,
-});
-const CTA = dynamic(() => import("@/components/CTA"), {
-  loading: () => <div className="min-h-[400px]" />,
-});
-const Footer = dynamic(() => import("@/components/Footer"), {
-  loading: () => <div className="min-h-[200px]" />,
-});
-const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"), {
-  ssr: false, // Composant client-only, pas besoin de SSR
-});
+import BeforeAfter from "@/components/BeforeAfter";
+import AfricaSection from "@/components/AfricaSection";
+import PainPoints from "@/components/PainPoints";
+import Features from "@/components/Features";
+import HowItWorks from "@/components/HowItWorks";
+import Founder from "@/components/Founder";
+import PilotProgram from "@/components/PilotProgram";
+import Testimonials from "@/components/Testimonials";
+import Pricing from "@/components/Pricing";
+import FAQ from "@/components/FAQ";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Home() {
   return (
