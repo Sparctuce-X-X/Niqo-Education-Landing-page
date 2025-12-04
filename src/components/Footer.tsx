@@ -177,7 +177,7 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <p className="text-white/40 text-sm flex items-center gap-2">
-              © {new Date().getFullYear()} Niqo Education. Enregistré au Rwanda 🇷🇼
+              © {new Date().getFullYear()} Niqo Education.
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map((social, index) => (
