@@ -16,8 +16,8 @@ const painPoints = [
   {
     icon: Timer,
     problem: "L'appel de présence prend beaucoup de temps",
-    solution: "Appel en 10 secondes depuis l'app mobile",
-    stat: "10 sec",
+    solution: "Appel simplifié en quelques clics depuis l'app",
+    stat: "< 1 min",
     statLabel: "pour faire l'appel",
   },
   {

@@ -1,25 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Wallet, Zap, ShieldCheck } from "lucide-react";
 
 const expectedBenefits = [
   {
     quote: "Réduisez vos impayés grâce aux rappels WhatsApp automatiques envoyés directement aux parents.",
     benefit: "Moins d'impayés",
-    icon: "💰",
+    Icon: Wallet,
     gradient: "from-[#22C55E] to-emerald-600",
   },
   {
     quote: "Une interface intuitive que vos enseignants peuvent prendre en main en moins d'une journée, sans formation technique.",
     benefit: "Prise en main rapide",
-    icon: "⚡",
+    Icon: Zap,
     gradient: "from-[#F97316] to-orange-600",
   },
   {
     quote: "Les parents reçoivent une notification instantanée quand leur enfant arrive à l'école. Tranquillité d'esprit garantie.",
     benefit: "Parents rassurés",
-    icon: "✅",
+    Icon: ShieldCheck,
     gradient: "from-[#1E3A5F] to-indigo-600",
   },
 ];
@@ -138,7 +138,7 @@ export default function Testimonials() {
                   className={`absolute -top-5 left-8 w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center shadow-lg`}
                   whileHover={{ scale: 1.1, rotate: 10 }}
                 >
-                  <span className="text-2xl">{item.icon}</span>
+                  <item.Icon className="w-6 h-6 text-white" />
                 </motion.div>
 
                 {/* Benefit title */}

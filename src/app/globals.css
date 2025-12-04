@@ -132,11 +132,10 @@ html {
 }
 
 /* Text gradient */
-.text-gradient {
-  background: linear-gradient(135deg, #22C55E 0%, #16A34A 50%, #F97316 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#22C55E] via-[#25D366] to-[#F97316] bg-clip-text text-transparent;
+  }
 }
 
 /* Blob animation */

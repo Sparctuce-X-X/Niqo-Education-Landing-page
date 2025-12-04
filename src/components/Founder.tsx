@@ -47,20 +47,22 @@ export default function Founder() {
             className="space-y-6 text-lg text-[#1E3A5F]/70 leading-relaxed"
           >
             <p>
-              Je suis <strong className="text-[#1E3A5F]">Dominique Huang</strong>, congolais d&apos;origine chinoise, 
-              passé par une <strong className="text-[#1E3A5F]">grande école d&apos;ingénieur à Paris</strong>. 
+              Je m&apos;appelle <strong className="text-[#1E3A5F]">Dominique Huang</strong>. 
+              Né à <strong className="text-[#1E3A5F]">Pointe-Noire</strong>, au Congo-Brazzaville, 
+              d&apos;une <strong className="text-[#1E3A5F]">mère congolaise</strong> et d&apos;un <strong className="text-[#1E3A5F]">père chinois</strong>, 
+              j&apos;ai grandi entre deux cultures qui m&apos;ont appris la valeur du travail et de l&apos;éducation.
+            </p>
+            <p>
+              Après des études dans une <strong className="text-[#1E3A5F]">grande école d&apos;ingénieur à Paris</strong>, 
+              j&apos;ai voulu mettre mes compétences au service du continent qui m&apos;a vu naître. 
               Passionné par les <strong className="text-[#1E3A5F]">technologies</strong>, l&apos;<strong className="text-[#1E3A5F]">intelligence artificielle</strong> et 
-              la <strong className="text-[#1E3A5F]">digitalisation du continent africain</strong>.
+              la <strong className="text-[#1E3A5F]">digitalisation de l&apos;Afrique</strong>, j&apos;ai créé <strong className="text-[#1E3A5F]">Niqo Education</strong>.
             </p>
             <p>
-              Je travaille depuis plusieurs mois sur <strong className="text-[#1E3A5F]">Niqo Education</strong>, 
-              une solution <strong className="text-[#1E3A5F]">simple et efficace</strong> pour 
-              moderniser la gestion des écoles africaines, en utilisant ce que tout le monde maîtrise déjà : 
+              En échangeant avec de nombreuses écoles africaines, j&apos;ai compris leurs vrais défis quotidiens. 
+              C&apos;est cette écoute qui a façonné chaque fonctionnalité de Niqo Education : une solution 
+              <strong className="text-[#1E3A5F]"> simple et efficace</strong>, utilisant ce que tout le monde maîtrise déjà — 
               <span className="text-[#25D366] font-semibold"> WhatsApp</span>.
-            </p>
-            <p>
-              Après avoir échangé avec de nombreuses écoles, j&apos;ai compris leurs vrais défis quotidiens. 
-              C&apos;est cette écoute qui a façonné chaque fonctionnalité de Niqo Education.
             </p>
           </motion.div>
 

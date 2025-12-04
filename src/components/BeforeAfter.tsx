@@ -12,21 +12,31 @@ import {
   Zap,
   MessageCircle,
   Smile,
-  ArrowRight
+  ArrowRight,
+  Wallet,
+  Eye,
+  EyeOff,
+  UserX,
+  ShieldCheck,
+  LayoutDashboard
 } from "lucide-react";
 
 const beforeItems = [
-  { icon: FileStack, text: "Registres papier perdus" },
-  { icon: Clock, text: "Appel qui prend 10 minutes" },
-  { icon: PhoneOff, text: "Parents jamais informés" },
-  { icon: Frown, text: "Secrétariat débordé" },
+  { icon: FileStack, text: "Registres papier perdus ou mal remplis" },
+  { icon: Clock, text: "Appel qui prend 10 minutes par classe" },
+  { icon: PhoneOff, text: "Parents informés trop tard" },
+  { icon: UserX, text: "Conflits : \"Mon enfant était présent !\"" },
+  { icon: Wallet, text: "Impayés difficiles à suivre" },
+  { icon: EyeOff, text: "Aucune visibilité en temps réel" },
 ];
 
 const afterItems = [
-  { icon: Smartphone, text: "Tout sur une seule app" },
-  { icon: Zap, text: "Appel en 10 secondes" },
-  { icon: MessageCircle, text: "WhatsApp automatique" },
-  { icon: Smile, text: "Équipe sereine" },
+  { icon: Smartphone, text: "Tout centralisé sur une plateforme simple" },
+  { icon: Zap, text: "Appel en quelques clics depuis le téléphone" },
+  { icon: MessageCircle, text: "Absences envoyées automatiquement sur WhatsApp" },
+  { icon: Wallet, text: "Moins d'impayés grâce aux rappels automatiques" },
+  { icon: ShieldCheck, text: "Preuve d'arrivée → moins de conflits" },
+  { icon: LayoutDashboard, text: "Vision instantanée de toutes les classes" },
 ];
 
 export default function BeforeAfter() {

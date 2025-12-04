@@ -393,7 +393,7 @@ export default function Hero() {
                   </div>
                   <div>
                     <div className="text-xs font-semibold text-[#1E3A5F]">Appel fait !</div>
-                    <div className="text-[10px] text-gray-500">en 10 secondes</div>
+                    <div className="text-[10px] text-gray-500">en quelques clics</div>
                   </div>
                 </div>
               </motion.div>

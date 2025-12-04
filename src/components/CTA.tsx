@@ -124,22 +124,33 @@ export default function CTA() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
         
         {/* Floating particles */}
-        {[...Array(15)].map((_, i) => (
+        {[
+          { left: 5, top: 20, duration: 3.5, delay: 0.3 },
+          { left: 15, top: 60, duration: 4.2, delay: 1.1 },
+          { left: 25, top: 35, duration: 3.8, delay: 0.7 },
+          { left: 35, top: 80, duration: 4.5, delay: 1.5 },
+          { left: 45, top: 15, duration: 3.2, delay: 0.2 },
+          { left: 55, top: 50, duration: 4.8, delay: 1.8 },
+          { left: 65, top: 75, duration: 3.6, delay: 0.5 },
+          { left: 75, top: 25, duration: 4.1, delay: 1.3 },
+          { left: 85, top: 65, duration: 3.9, delay: 0.9 },
+          { left: 95, top: 40, duration: 4.4, delay: 1.6 },
+        ].map((particle, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-white/20 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
             }}
             animate={{
               y: [0, -30, 0],
               opacity: [0.2, 0.5, 0.2],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: particle.delay,
             }}
           />
         ))}

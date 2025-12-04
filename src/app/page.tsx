@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import BeforeAfter from "@/components/BeforeAfter";
+import AfricaSection from "@/components/AfricaSection";
 import PainPoints from "@/components/PainPoints";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
@@ -20,6 +21,7 @@ export default function Home() {
       <WhatsAppButton />
       <Hero />
       <BeforeAfter />
+      <AfricaSection />
       <PainPoints />
       <Features />
       <HowItWorks />
