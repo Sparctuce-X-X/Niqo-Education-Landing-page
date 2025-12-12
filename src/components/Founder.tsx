@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Quote, Cpu, Globe, Sparkles } from "lucide-react";
+import { Heart, Cpu, Globe, Sparkles } from "lucide-react";
 
 export default function Founder() {
   return (
@@ -92,22 +92,6 @@ export default function Founder() {
             ))}
           </motion.div>
 
-          {/* Quote */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="mt-12 p-8 bg-gradient-to-br from-[#1E3A5F] to-[#0F172A] rounded-3xl relative text-white text-center"
-          >
-            <Quote className="absolute top-6 left-6 w-10 h-10 text-white/10" />
-            <p className="text-xl font-medium italic mb-4 relative z-10">
-              &ldquo;Votre école peut être modernisée en moins d&apos;une journée. 
-              Je m&apos;engage personnellement à vous accompagner.&rdquo;
-            </p>
-            <p className="text-[#22C55E] font-bold text-lg">— Dominique Huang</p>
-            <p className="text-white/50 text-sm mt-1">Fondateur de Niqo Education</p>
-          </motion.div>
         </div>
       </div>
     </section>

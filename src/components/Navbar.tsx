@@ -6,9 +6,9 @@ import { Menu, X, Sparkles, ArrowRight } from "lucide-react";
 
 const navLinks = [
   { href: "#fonctionnalites", label: "Fonctionnalités" },
-  { href: "#comment-ca-marche", label: "Comment ça marche" },
-  { href: "#tarifs", label: "Tarifs" },
+  { href: "#demo", label: "Programme pilote" },
   { href: "#faq", label: "FAQ" },
+  { href: "#tarifs", label: "Tarifs" },
 ];
 
 export default function Navbar() {
@@ -240,9 +240,16 @@ export default function Navbar() {
                 <div className="mx-4 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
                 
                 <div className="p-4">
-                  <motion.a
-                    href="#demo"
-                    onClick={() => setIsOpen(false)}
+                  <motion.button
+                    onClick={() => {
+                      setIsOpen(false);
+                      setTimeout(() => {
+                        const element = document.getElementById('demo');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }, 300);
+                    }}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.2 }}
@@ -252,7 +259,7 @@ export default function Navbar() {
                     <Sparkles className="w-5 h-5" />
                     Demander une démo gratuite
                     <ArrowRight className="w-4 h-4" />
-                  </motion.a>
+                  </motion.button>
                 </div>
               </div>
             </motion.div>

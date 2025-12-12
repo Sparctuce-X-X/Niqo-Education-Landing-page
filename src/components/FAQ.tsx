@@ -121,7 +121,7 @@ export default function FAQ() {
             Je suis disponible pour vous répondre
           </p>
           <a
-            href="https://wa.me/22500000000"
+            href="https://wa.me/33784643575"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold rounded-full transition-all"

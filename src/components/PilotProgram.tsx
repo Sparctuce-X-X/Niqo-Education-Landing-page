@@ -1,18 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import emailjs from "@emailjs/browser";
 import { 
   Gift, 
-  Calendar, 
   Users, 
   MessageCircle, 
   CheckCircle2,
   ArrowRight,
   Sparkles,
-  Clock,
   Shield,
-  Star
+  Star,
+  User,
+  Mail,
+  Phone,
+  Building2,
+  Loader2
 } from "lucide-react";
+
+const formSchema = z.object({
+  name: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
+  email: z.string().email("Email invalide"),
+  phone: z.string().min(8, "Numéro de téléphone invalide"),
+  schoolName: z.string().min(2, "Le nom de l'école est requis"),
+  studentCount: z.string().min(1, "Veuillez sélectionner une option"),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 const benefits = [
   {
@@ -38,8 +56,49 @@ const benefits = [
 ];
 
 export default function PilotProgram() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+  });
+
+  const onSubmit = async (data: FormData) => {
+    setIsLoading(true);
+    
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID",
+        {
+          from_name: data.name,
+          from_email: data.email,
+          phone: data.phone,
+          school_name: data.schoolName,
+          student_count: data.studentCount,
+          to_email: "contact@niqo.education",
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY"
+      );
+      
+      setIsSubmitted(true);
+      reset();
+    } catch (error) {
+      console.error("Erreur lors de l'envoi:", error);
+      alert("Une erreur est survenue. Veuillez réessayer ou nous contacter directement.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-br from-[#22C55E] via-[#16A34A] to-[#15803D] relative overflow-hidden">
+    <section id="demo" className="py-20 md:py-32 bg-gradient-to-br from-[#22C55E] via-[#16A34A] to-[#15803D] relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
         <motion.div 
@@ -100,6 +159,31 @@ export default function PilotProgram() {
           </p>
         </motion.div>
 
+        {/* Video Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-4xl mx-auto mb-16"
+        >
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
+            <video
+              controls
+              className="w-full aspect-video bg-black"
+              poster=""
+              preload="metadata"
+            >
+              <source src="/Programme_ecole_pilote.mov" type="video/quicktime" />
+              <source src="/Programme_ecole_pilote.mov" type="video/mp4" />
+              Votre navigateur ne supporte pas la lecture vidéo.
+            </video>
+          </div>
+          <p className="text-center text-white/70 mt-4 text-sm">
+            🎬 Découvrez le programme école pilote en vidéo
+          </p>
+        </motion.div>
+
         {/* Benefits Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {benefits.map((benefit, index) => (
@@ -121,60 +205,228 @@ export default function PilotProgram() {
           ))}
         </div>
 
-        {/* CTA Card */}
+        {/* Formulaire de candidature */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-2xl mx-auto"
         >
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
-            {/* Decorative corner */}
+          <div className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#22C55E]/10 rounded-bl-full" />
             
-            <div className="relative z-10">
-              <div className="flex flex-col md:flex-row items-center gap-8">
-                <div className="flex-1 text-center md:text-left">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F97316]/10 rounded-full mb-4">
-                    <Clock className="w-4 h-4 text-[#F97316]" />
-                    <span className="text-sm font-semibold text-[#F97316]">Places limitées</span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#1E3A5F] mb-3">
-                    Votre école pourrait être la prochaine !
+            <AnimatePresence mode="wait">
+              {isSubmitted ? (
+                <motion.div 
+                  key="success"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  className="text-center py-8 relative z-10"
+                >
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", delay: 0.2 }}
+                    className="w-20 h-20 bg-gradient-to-br from-[#22C55E] to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30"
+                  >
+                    <CheckCircle2 className="w-10 h-10 text-white" />
+                  </motion.div>
+                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-3">
+                    Merci pour votre candidature !
                   </h3>
                   <p className="text-[#1E3A5F]/60 mb-6">
-                    Modernisez votre établissement en moins d&apos;une journée. 
-                    Je m&apos;engage personnellement à vous accompagner tout au long du partenariat.
+                    Je vous contacterai dans les 24-48 heures pour discuter du programme pilote.
                   </p>
-                  
-                  {/* What you get */}
-                  <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                    {["Configuration gratuite", "Formation incluse", "Support prioritaire"].map((item, i) => (
-                      <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#22C55E]/10 text-[#22C55E] text-sm font-medium rounded-full">
-                        <CheckCircle2 className="w-4 h-4" />
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-4">
-                  <motion.a
-                    href="#demo"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#22C55E] to-emerald-500 text-white font-bold text-lg rounded-2xl shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-shadow"
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setIsSubmitted(false)}
+                    className="text-[#22C55E] font-semibold hover:underline flex items-center gap-2 mx-auto"
                   >
-                    Candidater maintenant
-                    <ArrowRight className="w-5 h-5" />
-                  </motion.a>
-                  <p className="text-center text-sm text-[#1E3A5F]/50">
-                    Réponse sous 24h garantie
-                  </p>
-                </div>
-              </div>
-            </div>
+                    <ArrowRight className="w-4 h-4 rotate-180" />
+                    Soumettre une autre demande
+                  </motion.button>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="form"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="relative z-10"
+                >
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#22C55E] to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg shadow-green-500/30">
+                      <Sparkles className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-[#1E3A5F]">
+                        Candidater au programme pilote
+                      </h3>
+                      <p className="text-sm text-[#1E3A5F]/60">Remplissez le formulaire ci-dessous</p>
+                    </div>
+                  </div>
+
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                    <div>
+                      <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">
+                        Nom complet
+                      </label>
+                      <div className="relative">
+                        <User className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${focusedField === 'name' ? 'text-[#22C55E]' : 'text-gray-400'}`} />
+                        <input
+                          {...register("name")}
+                          type="text"
+                          placeholder="Votre nom"
+                          onFocus={() => setFocusedField('name')}
+                          onBlur={() => setFocusedField(null)}
+                          className={`w-full pl-12 pr-4 py-4 border-2 rounded-2xl focus:outline-none transition-all bg-[#F8FAFC] ${
+                            errors.name 
+                              ? "border-red-500" 
+                              : "border-transparent focus:border-[#22C55E] focus:bg-white"
+                          }`}
+                        />
+                      </div>
+                      {errors.name && (
+                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-500 text-sm mt-2">{errors.name.message}</motion.p>
+                      )}
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">
+                          Email
+                        </label>
+                        <div className="relative">
+                          <Mail className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${focusedField === 'email' ? 'text-[#22C55E]' : 'text-gray-400'}`} />
+                          <input
+                            {...register("email")}
+                            type="email"
+                            placeholder="votre@email.com"
+                            onFocus={() => setFocusedField('email')}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full pl-12 pr-4 py-4 border-2 rounded-2xl focus:outline-none transition-all bg-[#F8FAFC] ${
+                              errors.email 
+                                ? "border-red-500" 
+                                : "border-transparent focus:border-[#22C55E] focus:bg-white"
+                            }`}
+                          />
+                        </div>
+                        {errors.email && (
+                          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-500 text-sm mt-2">{errors.email.message}</motion.p>
+                        )}
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">
+                          Téléphone
+                        </label>
+                        <div className="relative">
+                          <Phone className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${focusedField === 'phone' ? 'text-[#22C55E]' : 'text-gray-400'}`} />
+                          <input
+                            {...register("phone")}
+                            type="tel"
+                            placeholder="+225 00 00 00 00"
+                            onFocus={() => setFocusedField('phone')}
+                            onBlur={() => setFocusedField(null)}
+                            className={`w-full pl-12 pr-4 py-4 border-2 rounded-2xl focus:outline-none transition-all bg-[#F8FAFC] ${
+                              errors.phone 
+                                ? "border-red-500" 
+                                : "border-transparent focus:border-[#22C55E] focus:bg-white"
+                            }`}
+                          />
+                        </div>
+                        {errors.phone && (
+                          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-500 text-sm mt-2">{errors.phone.message}</motion.p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">
+                        Nom de l&apos;école
+                      </label>
+                      <div className="relative">
+                        <Building2 className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${focusedField === 'school' ? 'text-[#22C55E]' : 'text-gray-400'}`} />
+                        <input
+                          {...register("schoolName")}
+                          type="text"
+                          placeholder="École Les Étoiles"
+                          onFocus={() => setFocusedField('school')}
+                          onBlur={() => setFocusedField(null)}
+                          className={`w-full pl-12 pr-4 py-4 border-2 rounded-2xl focus:outline-none transition-all bg-[#F8FAFC] ${
+                            errors.schoolName 
+                              ? "border-red-500" 
+                              : "border-transparent focus:border-[#22C55E] focus:bg-white"
+                          }`}
+                        />
+                      </div>
+                      {errors.schoolName && (
+                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-500 text-sm mt-2">{errors.schoolName.message}</motion.p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label htmlFor="studentCount" className="block text-sm font-semibold text-[#1E3A5F] mb-2">
+                        Nombre d&apos;élèves
+                      </label>
+                      <div className="relative">
+                        <Users className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${focusedField === 'students' ? 'text-[#22C55E]' : 'text-gray-400'}`} />
+                        <select
+                          id="studentCount"
+                          {...register("studentCount")}
+                          onFocus={() => setFocusedField('students')}
+                          onBlur={() => setFocusedField(null)}
+                          className={`w-full pl-12 pr-4 py-4 border-2 rounded-2xl focus:outline-none transition-all appearance-none bg-[#F8FAFC] cursor-pointer ${
+                            errors.studentCount 
+                              ? "border-red-500" 
+                              : "border-transparent focus:border-[#22C55E] focus:bg-white"
+                          }`}
+                        >
+                          <option value="">Sélectionnez...</option>
+                          <option value="1-50">1 - 50 élèves</option>
+                          <option value="51-100">51 - 100 élèves</option>
+                          <option value="101-250">101 - 250 élèves</option>
+                          <option value="251-500">251 - 500 élèves</option>
+                          <option value="500+">Plus de 500 élèves</option>
+                        </select>
+                        <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 rotate-90" />
+                      </div>
+                      {errors.studentCount && (
+                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-500 text-sm mt-2">{errors.studentCount.message}</motion.p>
+                      )}
+                    </div>
+
+                    <motion.button
+                      type="submit"
+                      disabled={isLoading}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-gradient-to-r from-[#22C55E] to-emerald-500 hover:from-[#16A34A] hover:to-emerald-600 text-white font-bold text-lg rounded-2xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-green-500/30 hover:shadow-green-500/50"
+                    >
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="w-6 h-6 animate-spin" />
+                          Envoi en cours...
+                        </>
+                      ) : (
+                        <>
+                          Candidater au programme pilote
+                          <ArrowRight className="w-5 h-5" />
+                        </>
+                      )}
+                    </motion.button>
+
+                    <p className="text-xs text-center text-[#1E3A5F]/50 mt-4">
+                      En soumettant ce formulaire, vous acceptez d&apos;être contacté par Dominique Huang.
+                      <br />Vos données sont protégées et ne seront jamais partagées.
+                    </p>
+                  </form>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </motion.div>
 

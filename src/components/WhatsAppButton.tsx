@@ -7,8 +7,8 @@ import { useState } from "react";
 export default function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
   
-  // Remplace par ton numéro WhatsApp (format international sans +)
-  const phoneNumber = "250000000000";
+  // Numéro WhatsApp (format international sans +)
+  const phoneNumber = "33784643575";
   const defaultMessage = "Bonjour ! Je suis intéressé(e) par Niqo Education et j'aimerais en savoir plus.";
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;

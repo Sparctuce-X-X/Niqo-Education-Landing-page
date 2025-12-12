@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { 
   GraduationCap, 
   Mail, 
-  MapPin,
   Facebook,
   Twitter,
   Linkedin,
@@ -133,15 +132,6 @@ export default function Footer() {
                 </div>
                 <span>contact@niqo.education</span>
               </motion.a>
-                            <motion.div 
-                className="flex items-center gap-4 text-white/60"
-                whileHover={{ x: 5 }}
-              >
-                <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <span>Kigali, Rwanda</span>
-              </motion.div>
             </div>
           </div>
 
