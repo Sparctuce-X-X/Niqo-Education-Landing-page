@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X, Sparkles, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#fonctionnalites", label: "Fonctionnalités" },
@@ -73,13 +74,18 @@ export default function Navbar() {
               whileTap={{ scale: 0.97 }}
             >
               <div className="relative">
-                <span className="text-xl md:text-2xl font-extrabold tracking-tight">
-                  <span className="text-[#1E3A5F]">Niqo</span>
-                  <span className="bg-gradient-to-r from-[#22C55E] via-[#25D366] to-[#F97316] bg-clip-text text-transparent">Education</span>
-                </span>
+                <Image 
+                  src="/images/Logo.png" 
+                  alt="Niqo Education" 
+                  width={120}
+                  height={40}
+                  className="h-8 md:h-10 w-auto object-contain"
+                  priority
+                  sizes="(max-width: 768px) 32px, 40px"
+                />
                 {/* Underline animé au hover */}
                 <motion.div 
-                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-[#22C55E] to-[#F97316] rounded-full"
+                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-[#03cea4] to-[#ca1551] rounded-full"
                   initial={{ width: 0 }}
                   whileHover={{ width: "100%" }}
                   transition={{ duration: 0.3 }}
@@ -115,8 +121,8 @@ export default function Navbar() {
                     onMouseLeave={() => setHoveredLink(null)}
                     className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg z-10 ${
                       activeSection === link.href.replace("#", "")
-                        ? "text-[#22C55E]"
-                        : "text-[#1E3A5F]/70 hover:text-[#1E3A5F]"
+                        ? "text-[#03cea4]"
+                        : "text-[#345995]/70 hover:text-[#345995]"
                     }`}
                   >
                     {link.label}
@@ -124,7 +130,7 @@ export default function Navbar() {
                     {activeSection === link.href.replace("#", "") && (
                       <motion.div
                         layoutId="activeIndicator"
-                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#22C55E] rounded-full"
+                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#03cea4] rounded-full"
                         transition={{ type: "spring", bounce: 0.3 }}
                       />
                     )}
@@ -142,13 +148,13 @@ export default function Navbar() {
             >
               <motion.a
                 href="#demo"
-                className="group relative flex items-center gap-2 px-5 py-2.5 bg-[#1E3A5F] text-white text-sm font-semibold rounded-xl overflow-hidden"
+                className="group relative flex items-center gap-2 px-5 py-2.5 bg-[#345995] text-white text-sm font-semibold rounded-xl overflow-hidden"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 {/* Gradient animé au hover */}
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-[#22C55E] to-[#16A34A]"
+                  className="absolute inset-0 bg-gradient-to-r from-[#03cea4] to-[#02b896]"
                   initial={{ x: "-100%" }}
                   whileHover={{ x: 0 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
@@ -173,7 +179,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
               aria-expanded={isOpen}
-              className="md:hidden relative z-10 w-10 h-10 flex items-center justify-center rounded-xl bg-white/50 backdrop-blur-sm border border-white/50 text-[#1E3A5F]"
+              className="md:hidden relative z-10 w-10 h-10 flex items-center justify-center rounded-xl bg-white/50 backdrop-blur-sm border border-white/50 text-[#345995]"
             >
               <AnimatePresence mode="wait">
                 {isOpen ? (
@@ -222,16 +228,16 @@ export default function Navbar() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
-                      className="group flex items-center justify-between py-3.5 px-4 rounded-xl text-[#1E3A5F] hover:bg-gradient-to-r hover:from-[#22C55E]/10 hover:to-transparent transition-all font-medium"
+                      className="group flex items-center justify-between py-3.5 px-4 rounded-xl text-[#345995] hover:bg-gradient-to-r hover:from-[#03cea4]/10 hover:to-transparent transition-all font-medium"
                     >
                       <span className="flex items-center gap-3">
                         <motion.div 
-                          className="w-2 h-2 rounded-full bg-gradient-to-r from-[#22C55E] to-[#25D366]"
+                          className="w-2 h-2 rounded-full bg-gradient-to-r from-[#03cea4] to-[#ca1551]"
                           whileHover={{ scale: 1.5 }}
                         />
                         {link.label}
                       </span>
-                      <ArrowRight className="w-4 h-4 text-[#1E3A5F]/30 group-hover:text-[#22C55E] group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="w-4 h-4 text-[#345995]/30 group-hover:text-[#03cea4] group-hover:translate-x-1 transition-all" />
                     </motion.a>
                   ))}
                 </div>
@@ -254,7 +260,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.2 }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-gradient-to-r from-[#1E3A5F] to-[#2d4a6f] text-white font-semibold rounded-xl shadow-lg shadow-[#1E3A5F]/20 hover:shadow-xl transition-shadow"
+                    className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-gradient-to-r from-[#345995] to-[#4a6fa8] text-white font-semibold rounded-xl shadow-lg shadow-[#345995]/20 hover:shadow-xl transition-shadow"
                   >
                     <Sparkles className="w-5 h-5" />
                     Demander une démo gratuite

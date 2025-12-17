@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Ignore CSS files for linting (Tailwind directives)
+    "**/*.css",
   ]),
 ]);
 

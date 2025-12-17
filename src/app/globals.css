@@ -2,14 +2,23 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #1E3A5F;
-  --primary: #22C55E;
-  --primary-dark: #16A34A;
-  --secondary: #1E3A5F;
-  --accent: #F97316;
-  --accent-dark: #EA580C;
-  --muted: #F8FAFC;
-  --border: #E2E8F0;
+  --foreground: #345995;
+  --primary: #03cea4;
+  --primary-dark: #02b896;
+  --secondary: #345995;
+  --accent: #ca1551;
+  --accent-dark: #a01240;
+  --accent-light: #eac435;
+  --warning: #fb4d3d;
+  --muted: #f8f9fa;
+  --border: #e2e8f0;
+  
+  /* Couleurs du logo */
+  --logo-blue: #345995;
+  --logo-yellow: #eac435;
+  --logo-pink: #ca1551;
+  --logo-teal: #03cea4;
+  --logo-red: #fb4d3d;
 }
 
 @theme inline {
@@ -76,7 +85,7 @@ html {
 }
 
 .animated-gradient {
-  background: linear-gradient(-45deg, #22C55E, #16A34A, #1E3A5F, #F97316);
+  background: linear-gradient(-45deg, var(--logo-teal), var(--logo-blue), var(--logo-pink), var(--logo-yellow));
   background-size: 400% 400%;
   animation: gradient-shift 15s ease infinite;
 }
@@ -99,14 +108,14 @@ html {
 /* Pulse glow */
 @keyframes pulse-glow {
   0%, 100% { 
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4),
-                0 0 40px rgba(34, 197, 94, 0.2),
-                0 0 60px rgba(34, 197, 94, 0.1);
+    box-shadow: 0 0 20px rgba(3, 206, 164, 0.4),
+                0 0 40px rgba(3, 206, 164, 0.2),
+                0 0 60px rgba(3, 206, 164, 0.1);
   }
   50% { 
-    box-shadow: 0 0 30px rgba(34, 197, 94, 0.6),
-                0 0 60px rgba(34, 197, 94, 0.4),
-                0 0 90px rgba(34, 197, 94, 0.2);
+    box-shadow: 0 0 30px rgba(3, 206, 164, 0.6),
+                0 0 60px rgba(3, 206, 164, 0.4),
+                0 0 90px rgba(3, 206, 164, 0.2);
   }
 }
 
@@ -134,7 +143,7 @@ html {
 /* Text gradient */
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-[#22C55E] via-[#25D366] to-[#F97316] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[var(--logo-teal)] via-[var(--logo-blue)] to-[var(--logo-pink)] bg-clip-text text-transparent;
   }
 }
 
@@ -171,7 +180,7 @@ html {
   content: "";
   position: absolute;
   inset: -2px;
-  background: linear-gradient(45deg, #22C55E, #F97316, #22C55E);
+  background: linear-gradient(45deg, var(--logo-teal), var(--logo-pink), var(--logo-blue));
   background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite;
   border-radius: inherit;
@@ -196,8 +205,8 @@ html {
 
 /* Selection color */
 ::selection {
-  background: rgba(34, 197, 94, 0.3);
-  color: #1E3A5F;
+  background: rgba(3, 206, 164, 0.3);
+  color: var(--logo-blue);
 }
 
 /* ===== OPTIMISATIONS PERFORMANCE ===== */

@@ -21,6 +21,15 @@ export const metadata: Metadata = {
   description: "La plateforme de gestion scolaire tout-en-un qui connecte votre école aux parents via WhatsApp. Gérez élèves, présences, facturation et communication en un seul endroit.",
   keywords: ["gestion scolaire", "école privée", "Afrique", "WhatsApp", "facturation", "présences", "Côte d'Ivoire", "Sénégal", "Cameroun"],
   authors: [{ name: "Niqo Education" }],
+  icons: {
+    icon: [
+      { url: "/images/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/images/favicon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   robots: {
     index: true,
     follow: true,

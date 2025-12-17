@@ -11,6 +11,7 @@ import {
   ArrowRight,
   Heart
 } from "lucide-react";
+import Image from "next/image";
 
 const footerLinks = {
   product: {
@@ -54,8 +55,8 @@ export default function Footer() {
     <footer className="bg-gradient-to-b from-[#0F172A] to-[#0A0F1A] text-white relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#22C55E]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#F97316]/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#03cea4]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#ca1551]/5 rounded-full blur-3xl" />
       </div>
 
       {/* Newsletter Section */}
@@ -79,12 +80,12 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Votre email"
-                className="px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#22C55E]/50 transition-colors w-full sm:w-80"
+                className="px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#03cea4]/50 transition-colors w-full sm:w-80"
               />
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-gradient-to-r from-[#22C55E] to-emerald-500 text-white font-semibold rounded-2xl hover:shadow-lg hover:shadow-green-500/30 transition-all flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-gradient-to-r from-[#03cea4] to-[#02b896] text-white font-semibold rounded-2xl hover:shadow-lg hover:shadow-[#03cea4]/30 transition-all flex items-center justify-center gap-2"
               >
                 S&apos;inscrire
                 <ArrowRight className="w-5 h-5" />
@@ -101,19 +102,22 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <motion.a 
               href="#" 
-              className="flex items-center gap-3 mb-6 group"
+              className="flex items-center gap-4 mb-6 group"
               whileHover={{ scale: 1.02 }}
             >
               <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#22C55E] to-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-green-500/30">
-                  <GraduationCap className="w-7 h-7 text-white" />
-                </div>
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#22C55E] to-[#F97316] rounded-xl opacity-0 group-hover:opacity-30 blur transition-opacity" />
+                <Image 
+                  src="/images/Logo.png" 
+                  alt="Niqo Education" 
+                  width={144}
+                  height={48}
+                  className="h-12 w-auto object-contain"
+                  priority
+                  sizes="144px"
+                />
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#03cea4] to-[#ca1551] rounded-xl opacity-0 group-hover:opacity-30 blur transition-opacity" />
               </div>
               <div>
-                <span className="text-2xl font-bold block">
-                  Niqo<span className="text-gradient">Education</span>
-                </span>
                 <span className="text-xs text-white/40 tracking-wider">GESTION SCOLAIRE</span>
               </div>
             </motion.a>
