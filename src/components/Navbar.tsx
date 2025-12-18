@@ -77,11 +77,10 @@ export default function Navbar() {
                 <Image 
                   src="/images/Logo.png" 
                   alt="Niqo Education" 
-                  width={120}
-                  height={40}
+                  width={160}
+                  height={60}
                   className="h-8 md:h-10 w-auto object-contain"
                   priority
-                  sizes="(max-width: 768px) 32px, 40px"
                 />
                 {/* Underline animé au hover */}
                 <motion.div 

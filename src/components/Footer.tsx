@@ -109,11 +109,10 @@ export default function Footer() {
                 <Image 
                   src="/images/Logo.png" 
                   alt="Niqo Education" 
-                  width={144}
-                  height={48}
+                  width={180}
+                  height={70}
                   className="h-12 w-auto object-contain"
                   priority
-                  sizes="144px"
                 />
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#03cea4] to-[#ca1551] rounded-xl opacity-0 group-hover:opacity-30 blur transition-opacity" />
               </div>
