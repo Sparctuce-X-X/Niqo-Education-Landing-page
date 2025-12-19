@@ -36,7 +36,7 @@ const footerLinks = {
     title: "Légal",
     links: [
       { label: "Mentions légales", href: "#" },
-      { label: "Politique de confidentialité", href: "#" },
+      { label: "Politique de confidentialité", href: "/privacy" },
       { label: "CGU", href: "#" },
       { label: "Cookies", href: "#" },
     ],
