@@ -90,9 +90,9 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#1E3A5F] leading-[1.1] mb-6"
             >
-              Digitalisez vos{" "}
+              Concevez votre{" "}
               <span className="relative">
-                <span className="text-gradient">processus métier</span>
+                <span className="text-gradient">solution sur mesure</span>
                 <motion.svg
                   className="absolute -bottom-2 left-0 w-full"
                   viewBox="0 0 200 12"
@@ -110,9 +110,9 @@ export default function Hero() {
                 </motion.svg>
               </span>
               <br />
-              <span className="text-[#1E3A5F]/80">générez vos devis</span>{" "}
+              <span className="text-[#1E3A5F]/80">automatisez vos</span>{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 text-white px-4 py-1">plus vite</span>
+                <span className="relative z-10 text-white px-4 py-1">processus clés</span>
                 <motion.span 
                   className="absolute inset-0 bg-gradient-to-r from-[#F97316] to-[#EA580C] rounded-lg -z-0"
                   initial={{ scaleX: 0 }}
