@@ -26,7 +26,7 @@ const formSchema = z.object({
   name: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
   email: z.string().email("Email invalide"),
   phone: z.string().min(8, "Numéro de téléphone invalide"),
-  schoolName: z.string().min(2, "Le nom de l'école est requis"),
+  schoolName: z.string().min(2, "Le nom de l'organisation est requis"),
   studentCount: z.string().min(1, "Veuillez sélectionner une option"),
 });
 
@@ -35,8 +35,8 @@ type FormData = z.infer<typeof formSchema>;
 const benefits = [
   {
     icon: Gift,
-    title: "3 mois 100% gratuits",
-    description: "Accès complet à toutes les fonctionnalités sans aucun frais",
+    title: "Analyse de vos besoins",
+    description: "Cadrage de vos priorités pour proposer une solution adaptée",
   },
   {
     icon: Users,
@@ -50,8 +50,8 @@ const benefits = [
   },
   {
     icon: Star,
-    title: "Façonnez le produit",
-    description: "Vos retours influenceront directement les prochaines fonctionnalités",
+    title: "Déploiement progressif",
+    description: "Mise en place étape par étape selon votre organisation",
   },
 ];
 
@@ -98,7 +98,7 @@ export default function PilotProgram() {
   };
 
   return (
-    <section id="demo" className="py-20 md:py-32 bg-gradient-to-br from-[#22C55E] via-[#16A34A] to-[#15803D] relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-32 bg-gradient-to-br from-[#22C55E] via-[#16A34A] to-[#15803D] relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
         <motion.div 
@@ -136,13 +136,13 @@ export default function PilotProgram() {
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/20 backdrop-blur-sm rounded-full mb-6"
           >
             <Sparkles className="w-4 h-4 text-white" />
-            <span className="text-sm font-semibold text-white">Opportunité exclusive</span>
+            <span className="text-sm font-semibold text-white">Contact & accompagnement</span>
           </motion.div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Recherche de{" "}
+            Parlons de{" "}
             <span className="relative inline-block">
-              3 écoles pilotes
+              votre projet
               <motion.div 
                 className="absolute -bottom-2 left-0 right-0 h-1 bg-white/50 rounded-full"
                 initial={{ scaleX: 0 }}
@@ -154,33 +154,8 @@ export default function PilotProgram() {
           </h2>
           
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Je recherche actuellement <strong>3 écoles en Afrique francophone</strong> pour un partenariat 
-            de 3 mois gratuit, afin d&apos;obtenir des retours réels sur un cycle scolaire complet.
-          </p>
-        </motion.div>
-
-        {/* Video Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-4xl mx-auto mb-16"
-        >
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
-            <video
-              controls
-              className="w-full aspect-video bg-black"
-              poster=""
-              preload="metadata"
-            >
-              <source src="/Programme_ecole_pilote.mov" type="video/quicktime" />
-              <source src="/Programme_ecole_pilote.mov" type="video/mp4" />
-              Votre navigateur ne supporte pas la lecture vidéo.
-            </video>
-          </div>
-          <p className="text-center text-white/70 mt-4 text-sm">
-            🎬 Découvrez le programme école pilote en vidéo
+            Décrivez votre besoin en CRM, digitalisation de processus ou accompagnement sur mesure.
+            Nous revenons vers vous avec une approche claire et un plan de mise en place.
           </p>
         </motion.div>
 
@@ -234,10 +209,10 @@ export default function PilotProgram() {
                     <CheckCircle2 className="w-10 h-10 text-white" />
                   </motion.div>
                   <h3 className="text-2xl font-bold text-[#1E3A5F] mb-3">
-                    Merci pour votre candidature !
+                    Merci pour votre demande !
                   </h3>
                   <p className="text-[#1E3A5F]/60 mb-6">
-                    Je vous contacterai dans les 24-48 heures pour discuter du programme pilote.
+                    Je vous contacterai dans les 24-48 heures pour discuter de votre besoin.
                   </p>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
@@ -263,7 +238,7 @@ export default function PilotProgram() {
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-[#1E3A5F]">
-                        Candidater au programme pilote
+                        Demander un devis
                       </h3>
                       <p className="text-sm text-[#1E3A5F]/60">Remplissez le formulaire ci-dessous</p>
                     </div>
@@ -346,14 +321,14 @@ export default function PilotProgram() {
 
                     <div>
                       <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">
-                        Nom de l&apos;école
+                        Nom de l&apos;organisation
                       </label>
                       <div className="relative">
                         <Building2 className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${focusedField === 'school' ? 'text-[#22C55E]' : 'text-gray-400'}`} />
                         <input
                           {...register("schoolName")}
                           type="text"
-                          placeholder="École Les Étoiles"
+                          placeholder="Niqo Services"
                           onFocus={() => setFocusedField('school')}
                           onBlur={() => setFocusedField(null)}
                           className={`w-full pl-12 pr-4 py-4 border-2 rounded-2xl focus:outline-none transition-all bg-[#F8FAFC] ${
@@ -370,7 +345,7 @@ export default function PilotProgram() {
 
                     <div>
                       <label htmlFor="studentCount" className="block text-sm font-semibold text-[#1E3A5F] mb-2">
-                        Nombre d&apos;élèves
+                        Taille de votre structure
                       </label>
                       <div className="relative">
                         <Users className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${focusedField === 'students' ? 'text-[#22C55E]' : 'text-gray-400'}`} />
@@ -386,11 +361,11 @@ export default function PilotProgram() {
                           }`}
                         >
                           <option value="">Sélectionnez...</option>
-                          <option value="1-50">1 - 50 élèves</option>
-                          <option value="51-100">51 - 100 élèves</option>
-                          <option value="101-250">101 - 250 élèves</option>
-                          <option value="251-500">251 - 500 élèves</option>
-                          <option value="500+">Plus de 500 élèves</option>
+                          <option value="1-10">1 - 10 personnes</option>
+                          <option value="11-50">11 - 50 personnes</option>
+                          <option value="51-100">51 - 100 personnes</option>
+                          <option value="101-250">101 - 250 personnes</option>
+                          <option value="250+">Plus de 250 personnes</option>
                         </select>
                         <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 rotate-90" />
                       </div>
@@ -413,7 +388,7 @@ export default function PilotProgram() {
                         </>
                       ) : (
                         <>
-                          Candidater au programme pilote
+                          Envoyer ma demande
                           <ArrowRight className="w-5 h-5" />
                         </>
                       )}
@@ -441,7 +416,7 @@ export default function PilotProgram() {
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full">
             <Shield className="w-5 h-5 text-white" />
             <span className="text-white/80">
-              Aucun engagement • Aucun paiement • Aucun risque
+              Réponse rapide • Accompagnement sur mesure
             </span>
           </div>
         </motion.div>

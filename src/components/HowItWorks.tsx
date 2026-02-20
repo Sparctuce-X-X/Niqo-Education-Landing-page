@@ -15,22 +15,22 @@ const steps = [
   {
     number: "01",
     icon: Building2,
-    title: "Inscrivez votre école",
-    description: "Créez votre compte et configurez votre établissement. Je vous accompagne personnellement pour une mise en place en 24-72h.",
+    title: "Créez votre espace",
+    description: "Créez votre compte et configurez votre organisation. Nous vous accompagnons pour une mise en place en 24-72h.",
     color: "bg-[#22C55E]",
   },
   {
     number: "02",
     icon: Upload,
     title: "Importez vos données",
-    description: "Transférez facilement vos listes d'élèves, parents et classes depuis Excel ou saisissez-les directement dans la plateforme.",
+    description: "Transférez facilement vos contacts, dossiers et éléments métiers depuis Excel.",
     color: "bg-[#F97316]",
   },
   {
     number: "03",
     icon: Rocket,
     title: "Commencez à gérer",
-    description: "Les admins gèrent via le web, les profs, élèves et parents utilisent l'app mobile adaptée au marché africain.",
+    description: "Vos équipes gèrent via le web et le mobile, avec des workflows adaptés à votre activité.",
     color: "bg-[#1E3A5F]",
   },
 ];
@@ -115,9 +115,9 @@ export default function HowItWorks() {
                 <Monitor className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-2xl font-bold mb-3">Plateforme Web</h3>
-              <p className="text-white/70 mb-4">Pour les administrateurs et la direction</p>
+              <p className="text-white/70 mb-4">Pour les responsables et les équipes opérationnelles</p>
               <ul className="space-y-2">
-                {["Tableau de bord complet", "Gestion des inscriptions", "Suivi des paiements", "Rapports et statistiques"].map((item, i) => (
+                {["Tableau de bord complet", "Gestion des dossiers", "Suivi des paiements", "Rapports et statistiques"].map((item, i) => (
                   <li key={i} className="flex items-center gap-2 text-white/80 text-sm">
                     <Zap className="w-4 h-4 text-[#22C55E]" />
                     {item}
@@ -135,9 +135,9 @@ export default function HowItWorks() {
                 <Smartphone className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-2xl font-bold mb-3">Application Mobile</h3>
-              <p className="text-white/90 mb-4">Pour les professeurs, élèves et parents</p>
+              <p className="text-white/90 mb-4">Pour les équipes terrain et les contacts</p>
               <ul className="space-y-2">
-                {["Suivi des présences (profs)", "Emploi du temps (élèves)", "Notifications en temps réel", "Suivi de leur enfant (parents)"].map((item, i) => (
+                {["Suivi des opérations", "Validation rapide des tâches", "Notifications en temps réel", "Communication directe avec les contacts"].map((item, i) => (
                   <li key={i} className="flex items-center gap-2 text-white/90 text-sm">
                     <Zap className="w-4 h-4 text-white" />
                     {item}
@@ -157,10 +157,12 @@ export default function HowItWorks() {
           className="text-center mt-12"
         >
           <a
-            href="#demo"
+            href="https://wa.me/242068755353?text=Bonjour%20Niqo%2C%20je%20souhaite%20vous%20contacter."
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#22C55E] hover:bg-[#16A34A] text-white font-semibold rounded-full transition-all hover:shadow-lg hover:shadow-green-500/25 group"
           >
-            Commencer maintenant
+            Contactez-nous sur WhatsApp
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
         </motion.div>

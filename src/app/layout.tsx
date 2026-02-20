@@ -17,9 +17,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Niqo Education | Gestion scolaire simplifiée pour l'Afrique",
-  description: "La plateforme de gestion scolaire tout-en-un qui connecte votre école aux parents via WhatsApp. Gérez élèves, présences, facturation et communication en un seul endroit.",
-  keywords: ["gestion scolaire", "école privée", "Afrique", "WhatsApp", "facturation", "présences", "Côte d'Ivoire", "Sénégal", "Cameroun"],
+  title: "Niqo | Solutions sur mesure pour digitaliser vos processus",
+  description: "Niqo conçoit des solutions sur mesure pour les entreprises et les écoles : digitalisation des processus, consulting et modules CRM selon vos besoins.",
+  keywords: ["solutions sur mesure", "digitalisation", "consulting", "processus métier", "WhatsApp Business", "CRM", "Afrique"],
   authors: [{ name: "Niqo Education" }],
   icons: {
     icon: [
@@ -35,16 +35,16 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Niqo Education | Gestion scolaire simplifiée",
-    description: "La plateforme de gestion scolaire qui connecte votre école aux parents via WhatsApp",
+    title: "Niqo | Solutions sur mesure et digitalisation des processus",
+    description: "Solutions sur mesure, consulting et modules CRM selon les besoins des entreprises et des écoles",
     type: "website",
     locale: "fr_FR",
     siteName: "Niqo Education",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Niqo Education | Gestion scolaire simplifiée",
-    description: "La plateforme de gestion scolaire qui connecte votre école aux parents via WhatsApp",
+    title: "Niqo | Solutions sur mesure et digitalisation des processus",
+    description: "Solutions sur mesure, consulting et modules CRM selon les besoins des entreprises et des écoles",
   },
 };
 
@@ -54,8 +54,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <body className={`${inter.variable} antialiased`}>
+    <html lang="fr" suppressHydrationWarning>
+      <body suppressHydrationWarning className={`${inter.variable} antialiased`}>
         {children}
       </body>
     </html>

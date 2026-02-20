@@ -57,6 +57,8 @@ export default function Founder() {
               j&apos;ai voulu mettre mes compétences au service du continent qui m&apos;a vu naître. 
               Passionné par les <strong className="text-[#1E3A5F]">technologies</strong>, l&apos;<strong className="text-[#1E3A5F]">intelligence artificielle</strong> et 
               la <strong className="text-[#1E3A5F]">digitalisation de l&apos;Afrique</strong>, j&apos;ai créé <strong className="text-[#1E3A5F]">Niqo Education</strong>.
+              Aujourd&apos;hui, nous accompagnons les entreprises et les écoles avec <strong className="text-[#1E3A5F]">Niqo CRM</strong>
+              et des solutions de <strong className="text-[#1E3A5F]">consulting sur mesure</strong>.
             </p>
             <p>
               En échangeant avec de nombreuses écoles africaines, j&apos;ai compris leurs vrais défis quotidiens. 

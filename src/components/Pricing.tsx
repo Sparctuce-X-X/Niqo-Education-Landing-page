@@ -1,17 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Star, MessageCircle, Clock, Users } from "lucide-react";
+import { Check, ArrowRight, Star, MessageCircle, FileText, BriefcaseBusiness } from "lucide-react";
 
-const pilotFeatures = [
-  "Gestion complète des élèves et classes",
-  "Suivi des présences en temps réel",
-  "Notifications WhatsApp automatiques",
-  "Suivi des paiements",
-  "Application mobile",
-  "Accompagnement direct par le fondateur",
+const includedItems = [
+  "Structuration des processus métiers",
+  "Automatisation des notifications et relances",
+  "CRM adaptable et suivi opérationnel",
+  "Pilotage des paiements et reporting",
+  "Accès web et mobile",
+  "Accompagnement de déploiement",
   "Formation en visio/WhatsApp",
-  "Support prioritaire pendant toute la phase pilote",
+  "Support continu",
 ];
 
 export default function Pricing() {
@@ -39,19 +39,19 @@ export default function Pricing() {
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#F97316]/10 to-[#F97316]/5 border border-[#F97316]/20 rounded-full mb-6"
           >
             <Star className="w-4 h-4 text-[#F97316]" />
-            <span className="text-sm font-semibold text-[#F97316]">Offre de lancement</span>
+            <span className="text-sm font-semibold text-[#F97316]">Tarifs & accompagnement</span>
           </motion.div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3A5F] mb-6">
-            Programme{" "}
+            Offre{" "}
             <span className="relative">
-              <span className="text-gradient">Pilote</span>
+              <span className="text-gradient">sur mesure</span>
             </span>
           </h2>
           
           <p className="text-xl text-[#1E3A5F]/60 max-w-2xl mx-auto">
-            Nous recherchons 3 écoles en Afrique francophone pour tester Niqo Education 
-            pendant 3 mois, gratuitement.
+            Chaque entreprise ou établissement a ses réalités. Nous proposons un devis personnalisé
+            selon vos besoins, votre taille et votre niveau d'accompagnement.
           </p>
         </motion.div>
 
@@ -70,16 +70,16 @@ export default function Pricing() {
             {/* Badge */}
             <div className="absolute -top-4 left-1/2 -translate-x-1/2">
               <span className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-[#22C55E] to-emerald-500 text-white font-bold rounded-full shadow-lg shadow-green-500/30">
-                🎁 3 mois 100% gratuits
+                Devis personnalisé
               </span>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mb-10 mt-4">
               {[
-                { icon: Users, value: "3", label: "Écoles recherchées" },
-                { icon: Clock, value: "3 mois", label: "Durée du pilote" },
-                { icon: MessageCircle, value: "Direct", label: "Avec le fondateur" },
+                { icon: BriefcaseBusiness, value: "Sur mesure", label: "Selon vos processus" },
+                { icon: FileText, value: "Transparent", label: "Devis clair" },
+                { icon: MessageCircle, value: "Direct", label: "Accompagnement humain" },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -100,7 +100,7 @@ export default function Pricing() {
 
             {/* Features */}
             <div className="grid md:grid-cols-2 gap-4 mb-10">
-              {pilotFeatures.map((feature, index) => (
+              {includedItems.map((feature, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -10 }}
@@ -120,23 +120,25 @@ export default function Pricing() {
             {/* CTA */}
             <div className="text-center">
               <motion.a
-                href="#demo"
+                href="https://wa.me/242068755353?text=Bonjour%20Niqo%2C%20je%20souhaite%20demander%20un%20devis."
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-gradient-to-r from-[#22C55E] to-emerald-500 hover:from-[#16A34A] hover:to-emerald-600 text-white font-bold rounded-full shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-all"
               >
-                Candidater pour le programme pilote
+                Demander un devis
                 <ArrowRight className="w-5 h-5" />
               </motion.a>
               
               <p className="text-white/50 text-sm mt-4">
-                Places limitées • Réponse sous 24-48h
+                Réponse sous 24-48h
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* After pilot note */}
+        {/* Bottom note */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -146,7 +148,7 @@ export default function Pricing() {
         >
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 rounded-full">
             <span className="text-sm text-[#1E3A5F]/70">
-              💡 Tarifs disponibles après la période pilote • Demandez un devis personnalisé
+              Contactez-nous pour une proposition adaptée à votre contexte
             </span>
           </div>
         </motion.div>

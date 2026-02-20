@@ -19,16 +19,16 @@ import {
 const features = [
   {
     icon: GraduationCap,
-    title: "Gestion des élèves",
-    description: "Inscriptions, dossiers complets, suivi du parcours scolaire de chaque élève.",
+    title: "Gestion des contacts",
+    description: "Centralisez vos clients, usagers ou apprenants avec un suivi complet.",
     gradient: "from-blue-500 to-blue-600",
     shadowColor: "shadow-blue-500/25",
     bgGradient: "from-blue-50 to-blue-100/50",
   },
   {
     icon: CheckSquare,
-    title: "Suivi des présences",
-    description: "Marquage en temps réel, alertes automatiques aux parents en cas d'absence.",
+    title: "Suivi des opérations",
+    description: "Suivi en temps réel des activités clés et alertes automatiques.",
     gradient: "from-[#22C55E] to-emerald-600",
     shadowColor: "shadow-green-500/25",
     bgGradient: "from-green-50 to-emerald-100/50",
@@ -36,7 +36,7 @@ const features = [
   {
     icon: Receipt,
     title: "Gestion des paiements",
-    description: "Suivi des paiements, rappels automatiques aux parents, historique complet.",
+    description: "Facturation, relances automatiques et historique consolidé.",
     gradient: "from-amber-500 to-orange-500",
     shadowColor: "shadow-amber-500/25",
     bgGradient: "from-amber-50 to-orange-100/50",
@@ -44,7 +44,7 @@ const features = [
   {
     icon: MessageCircle,
     title: "Communication WhatsApp",
-    description: "Messages automatiques pour absences, rappels de paiement, annonces et événements.",
+    description: "Messages automatiques pour relances, confirmations et informations clés.",
     gradient: "from-[#25D366] to-[#128C7E]",
     shadowColor: "shadow-green-500/25",
     bgGradient: "from-emerald-50 to-teal-100/50",
@@ -52,7 +52,7 @@ const features = [
   {
     icon: Smartphone,
     title: "Application mobile",
-    description: "App dédiée pour les professeurs, élèves et parents. Adaptée au marché africain.",
+    description: "Accès mobile pour vos équipes et vos contacts, adapté au marché africain.",
     gradient: "from-[#F97316] to-red-500",
     shadowColor: "shadow-orange-500/25",
     bgGradient: "from-orange-50 to-red-100/50",
@@ -60,15 +60,15 @@ const features = [
   {
     icon: BarChart3,
     title: "Tableau de bord",
-    description: "Statistiques en temps réel, vue d'ensemble de votre établissement.",
+    description: "Statistiques en temps réel et vue d'ensemble de vos activités.",
     gradient: "from-purple-500 to-violet-600",
     shadowColor: "shadow-purple-500/25",
     bgGradient: "from-purple-50 to-violet-100/50",
   },
   {
     icon: School,
-    title: "Gestion des classes",
-    description: "Emplois du temps, affectation des professeurs, organisation simplifiée.",
+    title: "Cas d'usage éducation",
+    description: "Gestion académique, organisation des classes et suivi administratif.",
     gradient: "from-pink-500 to-rose-600",
     shadowColor: "shadow-pink-500/25",
     bgGradient: "from-pink-50 to-rose-100/50",
@@ -121,9 +121,9 @@ export default function Features() {
   const [activeMessage, setActiveMessage] = useState(0);
   
   const messages = [
-    { text: "Bonjour Mme Kouassi, votre enfant Marie est bien arrivé à l'école ce matin à 7h45. ✅", time: "08:00" },
-    { text: "📢 Rappel: La réunion parents-professeurs aura lieu samedi 15 à 10h.", time: "10:30" },
-    { text: "💰 Facture de scolarité disponible. Montant: 150 000 XOF. Échéance: 30 Nov.", time: "14:15" },
+    { text: "Bonjour, votre devis NIQ-248 est prêt. ✅", time: "08:00" },
+    { text: "📢 Rappel: votre échéance de paiement arrive le 30 Nov.", time: "10:30" },
+    { text: "💰 Paiement reçu. Merci, votre dossier est à jour.", time: "14:15" },
   ];
 
   return (
@@ -154,7 +154,7 @@ export default function Features() {
           </motion.div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3A5F] mb-6">
-            Tout ce dont votre école{" "}
+            Tout ce dont votre organisation{" "}
             <span className="relative">
               <span className="text-gradient">a besoin</span>
               <motion.svg
@@ -177,8 +177,8 @@ export default function Features() {
           </h2>
           
           <p className="text-xl text-[#1E3A5F]/60 max-w-3xl mx-auto leading-relaxed">
-            Une plateforme complète et intuitive pour gérer tous les aspects de votre établissement scolaire, 
-            de l&apos;inscription à la communication avec les parents.
+            Une plateforme complète et intuitive pour structurer vos processus métier,
+            de la relation client à la communication opérationnelle.
           </p>
         </motion.div>
 
@@ -269,7 +269,7 @@ export default function Features() {
                 >
                   Communiquez là où sont{" "}
                   <span className="relative inline-block">
-                    vos parents
+                    vos contacts
                     <motion.div 
                       className="absolute -bottom-1 left-0 right-0 h-1 bg-white/50 rounded-full"
                       initial={{ scaleX: 0 }}
@@ -287,8 +287,8 @@ export default function Features() {
                   transition={{ delay: 0.2 }}
                   className="text-xl text-white/90 mb-8 leading-relaxed"
                 >
-                  <span className="font-bold text-white">95% des parents africains</span> utilisent WhatsApp quotidiennement. 
-                  Atteignez-les directement, sans qu&apos;ils aient besoin d&apos;installer une nouvelle application.
+                  <span className="font-bold text-white">Vos clients et équipes</span> utilisent déjà WhatsApp
+                  au quotidien. Atteignez-les directement, sans nouvelle application.
                 </motion.p>
                 
                 <motion.ul 
@@ -299,10 +299,10 @@ export default function Features() {
                   className="space-y-4"
                 >
                   {[
-                    "Notifications d'absence automatiques",
+                    "Notifications automatiques de statut",
                     "Rappels de paiement personnalisés",
-                    "Annonces et événements de l'école",
-                    "Communication instantanée avec les parents",
+                    "Annonces et communications de service",
+                    "Communication instantanée avec vos contacts",
                   ].map((item, index) => (
                     <motion.li 
                       key={index}
@@ -345,7 +345,7 @@ export default function Features() {
                           </div>
                           <div>
                             <p className="font-semibold text-white text-sm">Niqo Education</p>
-                            <p className="text-xs text-white/70">École Les Étoiles</p>
+                            <p className="text-xs text-white/70">Compte entreprise</p>
                           </div>
                         </div>
                       </div>
@@ -430,7 +430,7 @@ export default function Features() {
                       </div>
                       <span className="text-xs font-bold text-[#1E3A5F]">Livré</span>
                     </div>
-                    <p className="text-[10px] text-gray-500">Message envoyé à 342 parents</p>
+                    <p className="text-[10px] text-gray-500">Message envoyé à 342 contacts</p>
                   </motion.div>
                 </div>
               </motion.div>

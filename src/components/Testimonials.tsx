@@ -5,20 +5,20 @@ import { MessageCircle, Wallet, Zap, ShieldCheck } from "lucide-react";
 
 const expectedBenefits = [
   {
-    quote: "Réduisez vos impayés grâce aux rappels WhatsApp automatiques envoyés directement aux parents.",
+    quote: "Réduisez vos impayés grâce aux rappels WhatsApp automatiques envoyés à vos contacts.",
     benefit: "Moins d'impayés",
     Icon: Wallet,
     gradient: "from-[#22C55E] to-emerald-600",
   },
   {
-    quote: "Une interface intuitive que vos enseignants peuvent prendre en main en moins d'une journée, sans formation technique.",
+    quote: "Une interface intuitive que vos équipes peuvent prendre en main en moins d'une journée, sans formation technique.",
     benefit: "Prise en main rapide",
     Icon: Zap,
     gradient: "from-[#F97316] to-orange-600",
   },
   {
-    quote: "Les parents reçoivent une notification instantanée quand leur enfant arrive à l'école. Tranquillité d'esprit garantie.",
-    benefit: "Parents rassurés",
+    quote: "Vos contacts reçoivent des notifications instantanées sur les événements importants. Visibilité et réactivité garanties.",
+    benefit: "Meilleure communication",
     Icon: ShieldCheck,
     gradient: "from-[#1E3A5F] to-indigo-600",
   },
@@ -26,8 +26,8 @@ const expectedBenefits = [
 
 export default function Testimonials() {
   const stats = [
-    { value: "3", label: "Écoles pilotes recherchées" },
-    { value: "3 mois", label: "Partenariat gratuit" },
+    { value: "24h", label: "Prise en charge initiale" },
+    { value: "Sur mesure", label: "Paramétrage" },
     { value: "24h", label: "Mise en place" },
     { value: "100%", label: "Accompagnement" },
   ];
@@ -74,14 +74,14 @@ export default function Testimonials() {
           </motion.div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Ce que Niqo Education{" "}
+            Ce que Niqo{" "}
             <span className="relative">
               <span className="text-gradient">vous apporte</span>
             </span>
           </h2>
           
           <p className="text-xl text-white/60 max-w-2xl mx-auto">
-            Rejoignez notre programme pilote et bénéficiez d&apos;un accompagnement personnalisé
+            Bénéficiez d&apos;un accompagnement personnalisé pour vos processus métier
           </p>
         </motion.div>
 
@@ -167,12 +167,14 @@ export default function Testimonials() {
         >
           <p className="text-white/50 text-sm mb-6">Soyez parmi les premiers à bénéficier de Niqo Education</p>
           <motion.a
-            href="#demo"
+            href="https://wa.me/242068755353?text=Bonjour%20Niqo%2C%20je%20souhaite%20vous%20contacter."
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#22C55E] to-emerald-500 text-white font-semibold rounded-full shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-shadow"
           >
-            Devenir école pilote
+            Contactez-nous sur WhatsApp
           </motion.a>
         </motion.div>
       </div>

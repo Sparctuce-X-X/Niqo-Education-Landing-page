@@ -15,15 +15,15 @@ import {
 const painPoints = [
   {
     icon: Timer,
-    problem: "L'appel de présence prend beaucoup de temps",
-    solution: "Appel simplifié en quelques clics depuis l'app",
+    problem: "Le suivi opérationnel prend trop de temps",
+    solution: "Suivi simplifié en quelques clics depuis l'app",
     stat: "< 1 min",
     statLabel: "pour faire l'appel",
   },
   {
     icon: MessageSquareOff,
-    problem: "Les parents ne sont pas informés à temps",
-    solution: "Absences envoyées automatiquement sur WhatsApp",
+    problem: "Les contacts ne sont pas informés à temps",
+    solution: "Notifications envoyées automatiquement sur WhatsApp",
     stat: "Instantané",
     statLabel: "notification parents",
   },
@@ -71,13 +71,13 @@ export default function PainPoints() {
           </motion.div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3A5F] mb-6">
-            Beaucoup d&apos;écoles nous ont partagé{" "}
+            Beaucoup d&apos;équipes nous ont partagé{" "}
             <span className="relative">
               <span className="text-red-500">les mêmes difficultés</span>
             </span>
           </h2>
           <p className="text-xl text-[#1E3A5F]/60 max-w-3xl mx-auto">
-            C&apos;est exactement pour cela que nous avons créé Niqo Education. 
+            C&apos;est exactement pour cela que nous avons créé Niqo. 
             Une solution simple qui utilise ce que tout le monde maîtrise déjà : <span className="font-semibold text-[#25D366]">WhatsApp</span>.
           </p>
         </motion.div>
@@ -148,11 +148,13 @@ export default function PainPoints() {
         >
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-gradient-to-r from-[#1E3A5F] to-[#0F172A] rounded-3xl">
             <div className="text-left">
-              <p className="text-white font-semibold text-lg mb-1">Voir la démo en 5 minutes</p>
-              <p className="text-white/60 text-sm">Découvrez comment Niqo Education peut transformer votre école</p>
+              <p className="text-white font-semibold text-lg mb-1">Passez à l'action en 5 minutes</p>
+              <p className="text-white/60 text-sm">Découvrez comment Niqo peut structurer vos processus métier</p>
             </div>
             <motion.a
-              href="#demo"
+              href="https://wa.me/242068755353?text=Bonjour%20Niqo%2C%20je%20souhaite%20vous%20contacter."
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-2 px-6 py-3 bg-[#22C55E] hover:bg-[#16A34A] text-white font-semibold rounded-xl transition-colors whitespace-nowrap"
@@ -160,7 +162,7 @@ export default function PainPoints() {
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
               </svg>
-              Voir la vidéo
+              Contactez-nous
             </motion.a>
           </div>
         </motion.div>

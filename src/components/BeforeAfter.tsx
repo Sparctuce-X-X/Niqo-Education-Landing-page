@@ -22,21 +22,21 @@ import {
 } from "lucide-react";
 
 const beforeItems = [
-  { icon: FileStack, text: "Registres papier perdus ou mal remplis" },
-  { icon: Clock, text: "Appel qui prend 10 minutes par classe" },
-  { icon: PhoneOff, text: "Parents informés trop tard" },
-  { icon: UserX, text: "Conflits : \"Mon enfant était présent !\"" },
-  { icon: Wallet, text: "Impayés difficiles à suivre" },
-  { icon: EyeOff, text: "Aucune visibilité en temps réel" },
+  { icon: FileStack, text: "Dossiers dispersés entre papier, Excel et WhatsApp" },
+  { icon: Clock, text: "Tâches répétitives qui font perdre du temps aux équipes" },
+  { icon: PhoneOff, text: "Clients ou contacts informés trop tard" },
+  { icon: UserX, text: "Erreurs de suivi et conflits sur l'état des dossiers" },
+  { icon: Wallet, text: "Factures et relances difficiles à piloter" },
+  { icon: EyeOff, text: "Peu de visibilité en temps réel sur l'activité" },
 ];
 
 const afterItems = [
-  { icon: Smartphone, text: "Tout centralisé sur une plateforme simple" },
-  { icon: Zap, text: "Appel en quelques clics depuis le téléphone" },
-  { icon: MessageCircle, text: "Absences envoyées automatiquement sur WhatsApp" },
-  { icon: Wallet, text: "Moins d'impayés grâce aux rappels automatiques" },
-  { icon: ShieldCheck, text: "Preuve d'arrivée → moins de conflits" },
-  { icon: LayoutDashboard, text: "Vision instantanée de toutes les classes" },
+  { icon: Smartphone, text: "Toutes vos opérations centralisées sur une seule plateforme" },
+  { icon: Zap, text: "Workflows automatisés en quelques clics" },
+  { icon: MessageCircle, text: "Notifications WhatsApp automatiques et ciblées" },
+  { icon: Wallet, text: "Moins d'impayés grâce aux relances intelligentes" },
+  { icon: ShieldCheck, text: "Traçabilité claire de chaque action" },
+  { icon: LayoutDashboard, text: "Tableau de bord instantané pour piloter vos équipes" },
 ];
 
 export default function BeforeAfter() {
@@ -73,7 +73,7 @@ export default function BeforeAfter() {
           </h2>
           
           <p className="text-xl text-[#1E3A5F]/60 max-w-2xl mx-auto">
-            Découvrez comment Niqo Education transforme le quotidien de votre école
+            Découvrez comment Niqo transforme le quotidien de vos opérations
           </p>
         </motion.div>
 
@@ -96,7 +96,7 @@ export default function BeforeAfter() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-[#1E3A5F]">Avant</h3>
-                  <p className="text-red-500 text-sm font-medium">Sans Niqo Education</p>
+                  <p className="text-red-500 text-sm font-medium">Sans structuration digitale</p>
                 </div>
               </div>
 
@@ -166,7 +166,7 @@ export default function BeforeAfter() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-[#1E3A5F]">Après</h3>
-                  <p className="text-[#22C55E] text-sm font-medium">Avec Niqo Education</p>
+                  <p className="text-[#22C55E] text-sm font-medium">Avec Niqo</p>
                 </div>
               </div>
 
@@ -230,10 +230,12 @@ export default function BeforeAfter() {
           className="text-center mt-12"
         >
           <a
-            href="#demo"
+            href="https://wa.me/242068755353?text=Bonjour%20Niqo%2C%20je%20souhaite%20vous%20contacter."
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#22C55E] to-emerald-500 text-white font-semibold rounded-full shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:scale-105 transition-all"
           >
-            Passer au &quot;Après&quot;
+            Contactez-nous sur WhatsApp
             <ArrowRight className="w-5 h-5" />
           </a>
         </motion.div>

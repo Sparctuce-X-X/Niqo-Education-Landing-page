@@ -6,13 +6,14 @@ import { Menu, X, Sparkles, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const navLinks = [
+  { href: "#solutions", label: "Solutions" },
   { href: "#fonctionnalites", label: "Fonctionnalités" },
-  { href: "#demo", label: "Programme pilote" },
   { href: "#faq", label: "FAQ" },
   { href: "#tarifs", label: "Tarifs" },
 ];
 
 export default function Navbar() {
+  const whatsappUrl = "https://wa.me/242068755353?text=Bonjour%20Niqo%2C%20je%20souhaite%20vous%20contacter.";
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -146,7 +147,9 @@ export default function Navbar() {
               className="hidden md:flex items-center gap-3 z-10"
             >
               <motion.a
-                href="#demo"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative flex items-center gap-2 px-5 py-2.5 bg-[#345995] text-white text-sm font-semibold rounded-xl overflow-hidden"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -159,7 +162,7 @@ export default function Navbar() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 />
                 <span className="relative z-10 flex items-center gap-2">
-                  Démo gratuite
+                  Contactez-nous sur WhatsApp
                   <motion.span
                     className="inline-block"
                     initial={{ x: 0 }}
@@ -245,16 +248,11 @@ export default function Navbar() {
                 <div className="mx-4 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
                 
                 <div className="p-4">
-                  <motion.button
-                    onClick={() => {
-                      setIsOpen(false);
-                      setTimeout(() => {
-                        const element = document.getElementById('demo');
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                      }, 300);
-                    }}
+                  <motion.a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.2 }}
@@ -262,9 +260,9 @@ export default function Navbar() {
                     className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-gradient-to-r from-[#345995] to-[#4a6fa8] text-white font-semibold rounded-xl shadow-lg shadow-[#345995]/20 hover:shadow-xl transition-shadow"
                   >
                     <Sparkles className="w-5 h-5" />
-                    Demander une démo gratuite
+                    Contactez-nous sur WhatsApp
                     <ArrowRight className="w-4 h-4" />
-                  </motion.button>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>

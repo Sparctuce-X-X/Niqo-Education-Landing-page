@@ -2,14 +2,12 @@
 
 import { motion } from "framer-motion";
 import { 
-  GraduationCap, 
   Mail, 
   Facebook,
   Twitter,
   Linkedin,
   Instagram,
   ArrowRight,
-  Heart
 } from "lucide-react";
 import Image from "next/image";
 
@@ -17,10 +15,11 @@ const footerLinks = {
   product: {
     title: "Produit",
     links: [
+      { label: "Solutions", href: "#solutions" },
       { label: "Fonctionnalités", href: "#fonctionnalites" },
       { label: "Tarifs", href: "#tarifs" },
       { label: "FAQ", href: "#faq" },
-      { label: "Démo", href: "#demo" },
+      { label: "Contactez-nous sur WhatsApp", href: "https://wa.me/242068755353?text=Bonjour%20Niqo%2C%20je%20souhaite%20vous%20contacter." },
     ],
   },
   company: {
@@ -117,12 +116,13 @@ export default function Footer() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#03cea4] to-[#ca1551] rounded-xl opacity-0 group-hover:opacity-30 blur transition-opacity" />
               </div>
               <div>
-                <span className="text-xs text-white/40 tracking-wider">GESTION SCOLAIRE</span>
+                <span className="text-xs text-white/40 tracking-wider">SUR MESURE • CONSULTING • CRM</span>
               </div>
             </motion.a>
             <p className="text-white/60 mb-8 max-w-sm leading-relaxed">
-              La plateforme de gestion scolaire tout-en-un pour les écoles privées 
-              en Afrique francophone. Simplifiez votre quotidien.
+              Niqo conçoit des solutions digitales sur mesure pour les entreprises, et aussi
+              pour les écoles. Le CRM est une brique possible parmi d'autres, selon votre
+              besoin métier.
             </p>
             <div className="space-y-4">
               <motion.a 
@@ -153,6 +153,8 @@ export default function Footer() {
                   <li key={linkIndex}>
                     <motion.a 
                       href={link.href}
+                      target={link.href.startsWith("http") ? "_blank" : undefined}
+                      rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="text-white/60 hover:text-[#22C55E] transition-colors flex items-center gap-2 group"
                       whileHover={{ x: 5 }}
                     >

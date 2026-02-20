@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Politique de Confidentialité | Niqo Education",
-  description: "Politique de confidentialité de Niqo Education - Protection de vos données personnelles",
+  title: "Politique de Confidentialité | Niqo",
+  description: "Politique de confidentialité de Niqo - Protection des données personnelles",
   robots: {
     index: false,
     follow: false,
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
             Politique de Confidentialité
           </h1>
           <p className="text-lg text-gray-600">
-            Niqo Education s&apos;engage à protéger vos données personnelles
+            Niqo s&apos;engage à protéger vos données personnelles
           </p>
           <p className="text-sm text-gray-500 mt-2">
             Dernière mise à jour : {currentDate}
@@ -42,7 +42,7 @@ export default function PrivacyPolicy() {
             <p className="text-gray-700 leading-relaxed">
               Chez Niqo Education, nous respectons votre vie privée et nous nous engageons à protéger 
               vos données personnelles. Cette politique explique comment nous collectons, utilisons 
-              et protégeons vos informations lorsque vous utilisez notre plateforme de gestion scolaire.
+              et protégeons vos informations lorsque vous utilisez nos solutions digitales.
             </p>
           </section>
 
@@ -54,22 +54,22 @@ export default function PrivacyPolicy() {
             <div className="space-y-4">
               <div>
                 <h3 className="text-lg font-medium text-gray-800 mb-2">
-                  Données des établissements scolaires
+                  Données des organisations clientes
                 </h3>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
-                  <li>Nom et coordonnées de l&apos;école</li>
+                  <li>Nom et coordonnées de l&apos;organisation</li>
                   <li>Informations administratives</li>
                   <li>Données de facturation</li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-lg font-medium text-gray-800 mb-2">
-                  Données des élèves et parents
+                  Données des personnes concernées (cas éducation)
                 </h3>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
                   <li>Nom, prénom, date de naissance</li>
                   <li>Coordonnées des parents</li>
-                  <li>Informations scolaires (classe, absences)</li>
+                  <li>Informations de suivi académique (ex: classe, assiduité)</li>
                   <li>Données de communication WhatsApp</li>
                 </ul>
               </div>
@@ -95,15 +95,15 @@ export default function PrivacyPolicy() {
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                 <div>
-                  <h4 className="font-medium text-gray-800">Gestion scolaire</h4>
-                  <p className="text-gray-700">Administrer votre établissement, gérer les élèves et les communications</p>
+                  <h4 className="font-medium text-gray-800">Gestion opérationnelle</h4>
+                  <p className="text-gray-700">Administrer vos activités, vos dossiers et vos communications</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                 <div>
                   <h4 className="font-medium text-gray-800">Communication WhatsApp</h4>
-                  <p className="text-gray-700">Envoyer des notifications importantes aux parents</p>
+                  <p className="text-gray-700">Envoyer des notifications importantes à vos contacts autorisés</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
@@ -172,7 +172,7 @@ export default function PrivacyPolicy() {
               Nous ne vendons jamais vos données personnelles. Nous ne les partageons qu&apos;avec :
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li><strong>WhatsApp :</strong> Uniquement pour envoyer les communications aux parents</li>
+              <li><strong>WhatsApp :</strong> Uniquement pour envoyer les communications aux contacts autorisés</li>
               <li><strong>Prestataires techniques :</strong> Hébergement, paiement, support (avec garantie de confidentialité)</li>
               <li><strong>Autorités légales :</strong> Uniquement en cas d&apos;obligation légale</li>
             </ul>

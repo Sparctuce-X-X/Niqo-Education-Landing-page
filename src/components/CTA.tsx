@@ -27,7 +27,7 @@ const formSchema = z.object({
   name: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
   email: z.string().email("Email invalide"),
   phone: z.string().min(8, "Numéro de téléphone invalide"),
-  schoolName: z.string().min(2, "Le nom de l'école est requis"),
+  schoolName: z.string().min(2, "Le nom de l'organisation est requis"),
   studentCount: z.string().min(1, "Veuillez sélectionner une option"),
 });
 
@@ -85,14 +85,14 @@ export default function CTA() {
   };
 
   const benefits = [
-    { icon: Clock, text: "Démonstration personnalisée de 15 minutes" },
+    { icon: Clock, text: "Échange personnalisé de 15 minutes" },
     { icon: Sparkles, text: "Mise en place gratuite de votre compte" },
-    { icon: Shield, text: "3 mois d'essai pilote gratuit" },
+    { icon: Shield, text: "Accompagnement de déploiement" },
     { icon: Headphones, text: "Accompagnement direct par le fondateur" },
   ];
 
   return (
-    <section id="demo" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-32 relative overflow-hidden">
       {/* Static gradient background - optimisé pour performance */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#22C55E] via-[#16A34A] to-[#15803D]">
         {/* Static orbs - pas d'animation pour réduire TBT */}
@@ -138,11 +138,11 @@ export default function CTA() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6"
             >
               <Star className="w-4 h-4 text-[#F97316]" />
-              <span className="text-sm font-semibold text-white">Démo personnalisée en 5 minutes</span>
+              <span className="text-sm font-semibold text-white">Contact rapide en 5 minutes</span>
             </motion.div>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Votre école peut être{" "}
+              Votre organisation peut être{" "}
               <span className="relative inline-block">
                 modernisée
                 <motion.div 
@@ -157,8 +157,8 @@ export default function CTA() {
             </h2>
             
             <p className="text-xl text-white/90 mb-10 leading-relaxed">
-              Je peux vous faire une courte démo en direct sur WhatsApp. 
-              Découvrez comment Niqo Education peut transformer votre établissement.
+              Contactez-nous directement sur WhatsApp pour qualifier votre besoin. 
+              Découvrez comment Niqo peut transformer vos opérations.
             </p>
             
             <div className="grid sm:grid-cols-2 gap-4 mb-10">
@@ -185,8 +185,8 @@ export default function CTA() {
                 <span className="text-lg">🚀</span>
               </div>
               <div>
-                <p className="text-sm text-white font-medium">Programme pilote en cours</p>
-                <p className="text-xs text-white/70">Places limitées pour 3 écoles</p>
+                <p className="text-sm text-white font-medium">Accompagnement sur mesure</p>
+                <p className="text-xs text-white/70">Réponse sous 24-48h</p>
               </div>
             </div>
           </motion.div>
@@ -224,7 +224,7 @@ export default function CTA() {
                     </h3>
                     <p className="text-[#1E3A5F]/60 mb-6">
                       Je vous contacterai dans les 24-48 heures pour planifier 
-                      votre démonstration personnalisée.
+                      votre demande de devis.
                     </p>
                     <motion.button
                       whileHover={{ scale: 1.02 }}
@@ -249,7 +249,7 @@ export default function CTA() {
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-[#1E3A5F]">
-                          Démo gratuite
+                          Demande de devis
                         </h3>
                         <p className="text-sm text-[#1E3A5F]/60">Remplissez le formulaire ci-dessous</p>
                       </div>
@@ -342,14 +342,14 @@ export default function CTA() {
                       {/* School Name */}
                       <div>
                         <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">
-                          Nom de l&apos;école
+                          Nom de l&apos;organisation
                         </label>
                         <div className="relative">
                           <Building2 className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${focusedField === 'school' ? 'text-[#22C55E]' : 'text-gray-400'}`} />
                           <input
                             {...register("schoolName")}
                             type="text"
-                            placeholder="École Les Étoiles"
+                            placeholder="Niqo Services"
                             onFocus={() => setFocusedField('school')}
                             onBlur={() => setFocusedField(null)}
                             className={`w-full pl-12 pr-4 py-4 border-2 rounded-2xl focus:outline-none transition-all bg-[#F8FAFC] ${
@@ -367,13 +367,13 @@ export default function CTA() {
                       {/* Student Count */}
                       <div>
                         <label htmlFor="studentCount" className="block text-sm font-semibold text-[#1E3A5F] mb-2">
-                          Nombre d&apos;élèves
+                          Taille de votre structure
                         </label>
                         <div className="relative">
                           <Users className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${focusedField === 'students' ? 'text-[#22C55E]' : 'text-gray-400'}`} />
                           <select
                             id="studentCount"
-                            aria-label="Nombre d'élèves"
+                            aria-label="Taille de votre structure"
                             {...register("studentCount")}
                             onFocus={() => setFocusedField('students')}
                             onBlur={() => setFocusedField(null)}
@@ -384,11 +384,11 @@ export default function CTA() {
                             }`}
                           >
                             <option value="">Sélectionnez...</option>
-                            <option value="1-50">1 - 50 élèves</option>
-                            <option value="51-100">51 - 100 élèves</option>
-                            <option value="101-250">101 - 250 élèves</option>
-                            <option value="251-500">251 - 500 élèves</option>
-                            <option value="500+">Plus de 500 élèves</option>
+                            <option value="1-10">1 - 10 personnes</option>
+                            <option value="11-50">11 - 50 personnes</option>
+                            <option value="51-100">51 - 100 personnes</option>
+                            <option value="101-250">101 - 250 personnes</option>
+                            <option value="250+">Plus de 250 personnes</option>
                           </select>
                           <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 rotate-90" />
                         </div>
@@ -412,7 +412,7 @@ export default function CTA() {
                           </>
                         ) : (
                           <>
-                            Demander ma démo gratuite
+                            Demander un devis
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                           </>
                         )}

@@ -8,8 +8,8 @@ export default function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
   
   // Numéro WhatsApp (format international sans +)
-  const phoneNumber = "33784643575";
-  const defaultMessage = "Bonjour ! Je suis intéressé(e) par Niqo Education et j'aimerais en savoir plus.";
+  const phoneNumber = "242068755353";
+  const defaultMessage = "Bonjour ! Je souhaite vous contacter pour un devis.";
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
 

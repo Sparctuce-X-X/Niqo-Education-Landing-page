@@ -6,16 +6,20 @@ import { ChevronDown, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
+    question: "Niqo CRM convient-il aussi aux entreprises non scolaires ?",
+    answer: "Oui. Niqo CRM est pensé pour les entreprises et organisations qui veulent structurer leurs devis, factures et relances. Nous adaptons les workflows à votre activité pour digitaliser vos processus internes.",
+  },
+  {
     question: "Comment fonctionne l'intégration WhatsApp ?",
-    answer: "Niqo Education utilise l'API officielle WhatsApp Business. Une fois votre compte configuré, les messages sont envoyés automatiquement aux parents selon les événements (absences, factures, annonces). Les parents n'ont rien à installer, ils reçoivent les messages directement sur leur WhatsApp habituel.",
+    answer: "Niqo utilise l'API officielle WhatsApp Business. Une fois votre compte configuré, les messages sont envoyés automatiquement à vos contacts selon vos événements métier (factures, relances, annonces, confirmations).",
   },
   {
     question: "Puis-je importer mes données existantes ?",
-    answer: "Oui, absolument ! Vous pouvez importer vos listes d'élèves, parents et classes depuis un fichier Excel. Je vous accompagne gratuitement pour la migration de vos données existantes.",
+    answer: "Oui, absolument. Vous pouvez importer vos clients, contacts, dossiers ou entités depuis un fichier Excel. Nous vous accompagnons pour la migration de vos données existantes.",
   },
   {
-    question: "Y a-t-il une application pour les parents ?",
-    answer: "Oui, les parents ont accès à une application mobile (iOS et Android) où ils peuvent suivre les présences, consulter les factures, voir les notes et communiquer avec l'école. En plus, ils reçoivent les notifications importantes sur WhatsApp.",
+    question: "Y a-t-il une application mobile ?",
+    answer: "Oui, une application mobile est disponible (iOS et Android) pour vos équipes et vos contacts selon votre usage. Vous pouvez suivre les opérations clés, consulter les factures et recevoir les notifications importantes.",
   },
   {
     question: "Comment sont sécurisées les données ?",
@@ -23,7 +27,7 @@ const faqs = [
   },
   {
     question: "Combien de temps prend la mise en place ?",
-    answer: "La configuration initiale prend généralement entre 24 et 72 heures selon la taille de votre école. Je vous accompagne personnellement pour créer votre compte, importer vos données et vous former. Vous pouvez commencer à utiliser la plateforme très rapidement.",
+    answer: "La configuration initiale prend généralement entre 24 et 72 heures selon la taille de votre organisation et vos processus. Nous vous accompagnons pour créer votre compte, importer vos données et former vos équipes.",
   },
   {
     question: "Puis-je changer de plan à tout moment ?",
@@ -31,7 +35,7 @@ const faqs = [
   },
   {
     question: "Proposez-vous une formation ?",
-    answer: "Oui, une formation en visio ou WhatsApp est incluse. Je vous forme personnellement à l'utilisation de la plateforme et reste disponible pour répondre à toutes vos questions.",
+    answer: "Oui, une formation en visio ou WhatsApp est incluse. Nous adaptons la formation à vos équipes et à votre niveau d'autonomie.",
   },
   {
     question: "Quels moyens de paiement acceptez-vous ?",
@@ -59,7 +63,7 @@ export default function FAQ() {
             Questions fréquentes
           </h2>
           <p className="text-lg text-[#1E3A5F]/70">
-            Tout ce que vous devez savoir sur Niqo Education
+            Tout ce que vous devez savoir sur Niqo CRM, le consulting et Niqo Education
           </p>
         </motion.div>
 
@@ -121,7 +125,7 @@ export default function FAQ() {
             Je suis disponible pour vous répondre
           </p>
           <a
-            href="https://wa.me/33784643575"
+            href="https://wa.me/242068755353?text=Bonjour%20Niqo%2C%20je%20souhaite%20vous%20contacter."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold rounded-full transition-all"
